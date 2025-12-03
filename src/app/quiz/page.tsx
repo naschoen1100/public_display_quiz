@@ -1,4 +1,6 @@
+'use client'
 import { useState } from "react";
+import {useRouter} from "next/navigation";
 import QuizCard from "@/app/components /QuizCard";
 
 export default function QuizPage() {
@@ -15,6 +17,7 @@ export default function QuizPage() {
         },
     ];
 
+    const router = useRouter();
     const [current, setCurrent] = useState(0);
     const [score, setScore] = useState(0);
 
@@ -28,6 +31,9 @@ export default function QuizPage() {
             <div style={{ textAlign: "center", marginTop: 100 }}>
                 <h1>Quiz beendet!</h1>
                 <p>Dein Score: {score} / {questions.length}</p>
+                <button className={"btn"} onClick={() => {router.push(`/`)}}>
+                    Start again
+                </button>
             </div>
         );
     }
