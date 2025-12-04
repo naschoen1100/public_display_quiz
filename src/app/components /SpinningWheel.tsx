@@ -24,12 +24,11 @@ export default function SpinningWheel() {
 
     const handleStop = () => {
         setMustSpin(false);
-        console.log("Gewonnen:", data[prizeNumber].option);
         router.push(`/quiz`);
     };
 
     return (
-    <div className="flex flex-col items-center justify-center min-h-screen gap-8 bg-base-100">
+    <div className="flex flex-col items-center justify-center bg-cyan-600 p-10">
         <Wheel
             mustStartSpinning={mustSpin}
             prizeNumber={prizeNumber}
@@ -37,11 +36,21 @@ export default function SpinningWheel() {
             onStopSpinning={handleStop}
             backgroundColors={["#facc15", "#f97316"]}
             textColors={["#000"]}
-            outerBorderColor={"#000"}
-        />
-        <button className="btn btn-primary btn-lg" onClick={handleSpin}>
-            Lets Play
-        </button>
+            outerBorderColor={"#000"}/>
+        <div className="flex items-center justify-center">
+            <button
+                className="btn btn-lg m-5"
+                onClick={handleSpin}
+            >
+                Lets Play
+            </button>
+            <button
+                className="btn btn-lg m-5"
+                onClick={handleSpin}
+            >
+                Lets Play
+            </button>
+        </div>
     </div>
 );
 }

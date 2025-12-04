@@ -25,13 +25,13 @@ export default function QuizCard({ question, options, correctAnswer, onNext }: Q
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-base-100">
-            <div className = "card bg-base-100 w-96 shadow-sm" >
+        <div className="flex items-center justify-center bg-cyan-600">
+            <div className = "card bg-cyan-600" >
                 <div className="card-body">
                     <h2 className="card-title">{question}</h2>
                     <ul className={"list"}>
                        {options.map((option) =>
-                           <button className={`btn w-full text-lg ${
+                           <button className={`btn w-full text-lg m-2 ${
                                selected === option ? "btn-info" : "btn"}`}
                                key={option}
                                onClick={() => {
@@ -41,7 +41,7 @@ export default function QuizCard({ question, options, correctAnswer, onNext }: Q
                            </button>)
                        }
                        <button
-                           className={"btn"}
+                           className={"btn w-full text-lg m-2 "}
                            onClick={() => handleNext()}
                            disabled={!answered}>
                                 Next
