@@ -14,6 +14,8 @@ export default function SpinningWheel() {
 
     const router = useRouter();
     const [mustSpin, setMustSpin] = useState(false);
+    const [button1Pressed, setButton1Pressed] = useState(false);
+    const [button2Pressed, setButton2Pressed] = useState(false);
     const [prizeNumber, setPrizeNumber] = useState(0);
 
     const handleSpin = () => {
@@ -26,6 +28,22 @@ export default function SpinningWheel() {
         setMustSpin(false);
         router.push(`/quiz`);
     };
+
+    const handleOnClickButton1 = () => {
+        if (button2Pressed) {
+            handleSpin();
+        }
+        else { (setButton1Pressed(true));
+        }
+    }
+
+    const handleOnClickButton2 = () => {
+        if (button1Pressed) {
+            handleSpin();
+        }
+        else { (setButton2Pressed(true));
+        }
+    }
 
     return (
     <div className="flex flex-col items-center justify-center bg-cyan-600 p-10">
@@ -40,13 +58,15 @@ export default function SpinningWheel() {
         <div className="flex items-center justify-center">
             <button
                 className="btn btn-lg m-5"
-                onClick={handleSpin}
+                disabled={button1Pressed}
+                onClick={() => {handleOnClickButton1()}}
             >
                 Lets Play
             </button>
             <button
                 className="btn btn-lg m-5"
-                onClick={handleSpin}
+                disabled={button2Pressed}
+                onClick={handleOnClickButton2}
             >
                 Lets Play
             </button>
