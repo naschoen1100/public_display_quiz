@@ -1,0 +1,219 @@
+[
+  {
+    "id": 1,
+    "title": "passowrds",
+    "questions":
+      [
+        {
+          "text": "Welche der folgenden Aussagen ist korrekt?",
+          "answers": ["Passwortlänge ist unwichtig", "Passwörter sollten Namen oder Geburtsdaten enthalten", "lange Passphrasen sind meist sicherer als kurze komplexe passwörter", ""],
+          "correctAnswer": 2
+        },
+        {
+          "text": "Welches Passwort ist am sichersten?",
+          "answers": ["Sommer2024", "G3l!cH7#92@f", "12345678", "Passwort123"],
+          "correctAnswer": 1
+        },
+        {
+          "text": "Wofür sollte ein Passwortmanager genutzt werden?",
+          "answers": [
+            "Um Passwörter öffentlich zu teilen",
+            "Um Passwörter auf allen Geräten gleichzusetzen",
+            "Um komplexe, einzigartige Passwörter für jede Seite zu speichern",
+            "Um weniger Passwörter verwenden zu müssen"
+          ],
+          "correctAnswer": 2
+        },
+        {
+          "text": "Warum ist 2-Faktor-Authentifizierung wichtig?",
+          "answers": [
+            "Sie macht Logins schneller",
+            "Sie erlaubt es, Passwörter zu umgehen",
+            "Sie schützt auch dann, wenn ein Passwort gestohlen wird",
+            "Sie speichert Passwörter automatisch"
+          ],
+          "correctAnswer": 2
+        },
+        {
+          "category": "Passwords",
+          "text": "Was ist ein Zeichen für ein unsicheres Passwort?",
+          "answers": [
+            "Es wurde schon mehrfach in Datenleaks gefunden",
+            "Es enthält Sonderzeichen",
+            "Es wird nur einmal benutzt",
+            "Es ist länger als 12 Zeichen"
+          ],
+          "correctAnswer": 0
+        }
+      ]
+  },
+  {
+    "id": 2,
+    "title": "email safety",
+    "questions":
+      [
+        {
+          "text": "Woran erkennt man häufig eine Phishing-Mail?",
+          "answers": [
+            "Sie kommt von einem bekannten Kontakt",
+            "Sie enthält keinerlei Rechtschreibfehler",
+            "Sie fordert dringend dazu auf, einen Link zu klicken oder Daten einzugeben",
+            "Sie hat eine persönliche Anrede"
+          ],
+          "correctAnswer": 2
+        },
+        {
+          "text": "Was sollte man tun, wenn man eine verdächtige E-Mail bekommt?",
+          "answers": [
+            "Sofort antworten",
+            "Keine Links anklicken und den Absender prüfen",
+            "Den Anhang öffnen, um nachzusehen",
+            "Sie direkt weiterleiten"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "text": "Was ist ein Spoofing-Angriff?",
+          "answers": [
+            "Ein Angriff auf Smart-Geräte",
+            "Eine Mail, bei der die Absenderadresse gefälscht wird",
+            "Eine Form von Malware",
+            "Ein Angriff auf Passwortmanager"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "text": "Was ist ein typisches Merkmal legitimer Unternehmens-E-Mails?",
+          "answers": [
+            "Sie nutzen immer bunte Logos",
+            "Sie verlangen oft dringend Passwörter",
+            "Sie schicken keine sensiblen Links ohne Kontext",
+            "Sie kommen ohne Absenderadresse"
+          ],
+          "correctAnswer": 2
+        },
+        {
+          "text": "Warum sollte man Anhänge aus unbekannten E-Mails nicht öffnen?",
+          "answers": [
+            "Sie sind meistens Werbung",
+            "Sie brauchen viel Speicherplatz",
+            "Sie können Malware enthalten",
+            "Sie löschen Dateien auf dem Computer"
+          ],
+          "correctAnswer": 2
+        }
+      ]
+  },
+  {
+    "id": 3,
+    "title": "Social Media",
+    "questions":[
+      {
+        "text": "Warum sind öffentliche Social-Media-Profile riskant?",
+        "answers": [
+          "Sie verbrauchen viel Akku",
+          "Angreifer können persönliche Informationen sammeln",
+          "Sie sind illegal",
+          "Sie löschen automatisch alte Posts"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "text": "Was ist ein sicherer Umgang mit privaten Informationen in sozialen Netzwerken?",
+        "answers": [
+          "Alles öffentlich posten",
+          "Nur notwendige Informationen teilen",
+          "Passwörter posten, aber verschlüsselt",
+          "Fotos von Ausweisen posten"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "text": "Welche Einstellung macht Social-Media-Konten sicherer?",
+        "answers": [
+          "Standort immer aktivieren",
+          "2-Faktor-Authentifizierung aktivieren",
+          "Profil für alle freigeben",
+          "Fremde Kontakte automatisch akzeptieren"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "text": "Warum sollte man Freundschaftsanfragen von Fremden vermeiden?",
+        "answers": [
+          "Sie freuen sich sonst nicht",
+          "Es könnten Fake-Profile zu Datensammlung oder Betrug sein",
+          "Man verliert Follower",
+          "Social Media funktioniert dann nicht"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "text": "Was ist ein Anzeichen, dass ein Konto gehackt wurde?",
+        "answers": [
+          "Neue Likes",
+          "Wenige Nachrichten",
+          "Unerwartete Posts oder versendete Nachrichten",
+          "Wenige Freunde"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": 4,
+        "title": "Social Engineering",
+        "questions": [
+          {
+            "text": "Was ist Social Engineering?",
+            "answers": [
+              "Hardware Hacking",
+              "Manipulation von Menschen, um Informationen zu bekommen",
+              "Malware auf USB-Sticks",
+              "Das Erstellen von Fake-Webseiten"
+            ],
+            "correctAnswer": 1
+          },
+          {
+            "text": "Welche Methode nutzen Social Engineers typischerweise?",
+            "answers": [
+              "Netzwerkanalyse",
+              "Vortäuschen einer Autoritätsrolle",
+              "KI-Bildbearbeitung",
+              "Hardware-Manipulation"
+            ],
+            "correctAnswer": 1
+          },
+          {
+            "text": "Welches Verhalten ist sicher?",
+            "answers": [
+              "Fremden sofort Zugang gewähren",
+              "Ausweise und Legitimation prüfen",
+              "Unbekannten vertrauliche Infos geben",
+              "Sicherheitsregeln ignorieren, wenn jemand freundlich ist"
+            ],
+            "correctAnswer": 1
+          },
+          {
+            "text": "Was beschreibt den 'Pretexting'-Angriff?",
+            "answers": [
+              "Malware-Installation",
+              "Eine erfundene Geschichte, um Vertrauen zu gewinnen",
+              "Passwortdiebstahl durch Software",
+              "Browserumleitungen"
+            ],
+            "correctAnswer": 1
+          },
+          {
+            "text": "Was ist ein rotes Flag bei einem unerwarteten Anruf?",
+            "answers": [
+              "Freundlicher Ton",
+              "Hintergrundgeräusche",
+              "Dringende Forderung nach sensiblen Daten",
+              "Lange Gesprächspausen"
+            ],
+            "correctAnswer": 2
+          }
+        ]
+      }
+    ]
+  }
+]
