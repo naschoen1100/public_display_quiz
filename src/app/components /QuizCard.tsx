@@ -4,16 +4,16 @@ import React, { useState } from "react";
 type QuizCardProps = {
     question: string;
     options: string[];
-    correctAnswer: string;
+    correctAnswer: number;
     onNext: (isCorrect: boolean) => void;
 };
 
 export default function QuizCard({ question, options, correctAnswer, onNext }: QuizCardProps) {
-    const [selected, setSelected] = useState<string | null>(null);
+    const [selected, setSelected] = useState<number | null>(null);
     const [answered, setAnswered] = useState(false);
 
     const handleAnswer = (option: string) => {
-        setSelected(option);
+        setSelected( options.indexOf(option));
         setAnswered(true);
     };
 
@@ -33,7 +33,7 @@ export default function QuizCard({ question, options, correctAnswer, onNext }: Q
                     <ul className={"list"}>
                        {options.map((option) =>
                            <button className={`btn w-full text-lg m-2 ${
-                               selected === option ? "btn-info" : "btn"}`}
+                               selected === options.indexOf(option)? "btn-info" : "btn"}`}
                                key={option}
                                onClick={() => {
                                    handleAnswer(option)}}

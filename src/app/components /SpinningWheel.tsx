@@ -1,17 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { Wheel } from "react-custom-roulette";
 import {useRouter} from "next/navigation";
+import type { QuizEntriesWithoutQuestions } from "@/app/types/types";
 
-export default function SpinningWheel() {
-    const data = [
-        {option: "Thema A"},
-        {option: "Thema B"},
-        {option: "Thema C"},
-        {option: "Thema D"},
-    ];
+type Props = {
+    data: QuizEntriesWithoutQuestions[];
+};
 
+export default function SpinningWheel({data}: Props) {
     const router = useRouter();
     const [mustSpin, setMustSpin] = useState(false);
     const [button1Pressed, setButton1Pressed] = useState(false);
@@ -45,12 +43,16 @@ export default function SpinningWheel() {
         }
     }
 
+    const labels = data.map(q => ({
+        option: q.title,
+    }));
+
     return (
     <div className="flex flex-col items-center justify-center bg-cyan-600 p-10">
         <Wheel
             mustStartSpinning={mustSpin}
             prizeNumber={prizeNumber}
-            data={data}
+            data={labels}
             onStopSpinning={handleStop}
             backgroundColors={["#facc15", "#f97316"]}
             textColors={["#000"]}
