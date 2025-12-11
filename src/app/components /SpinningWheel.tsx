@@ -1,15 +1,12 @@
 "use client";
 
-import {useEffect, useState} from "react";
+import {use, useState} from "react";
 import { Wheel } from "react-custom-roulette";
 import {useRouter} from "next/navigation";
-import type { QuizEntriesWithoutQuestions } from "@/app/types/types";
 
-type Props = {
-    data: QuizEntriesWithoutQuestions[];
-};
-
-export default function SpinningWheel({data}: Props) {
+// @ts-ignore
+export default function SpinningWheel({dataPromise}) {
+    const data = use(dataPromise);
     const router = useRouter();
     const [mustSpin, setMustSpin] = useState(false);
     const [button1Pressed, setButton1Pressed] = useState(false);
