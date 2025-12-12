@@ -1,9 +1,9 @@
 import SpinningWheel from "@/app/components /SpinningWheel";
-import {Suspense, useEffect, useState} from "react";
-import getData from "@/app/api/getQuizData";
+import {Suspense} from "react";
+import {getQuizNames} from "@/app/data/getQuizData";
 
 export default function EntryPage () {
-    const dataPromise = getData();
+    const dataPromise = getQuizNames();
     return (
         <>
             <div className={"flex flex-col items-center justify-center bg-cyan-600"}>
