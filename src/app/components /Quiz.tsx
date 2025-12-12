@@ -2,15 +2,20 @@
 import {use, useState} from "react";
 import {useRouter} from "next/navigation";
 import QuizCard from "@/app/components /QuizCard";
-import {QuizQuestion, Quiz} from "@/app/types/types";
+import {QuizQuestion} from "@/app/types/types";
+import {getFullQuizData} from "@/app/data/getQuizData";
 
-export default function QuizPage({dataPromise}) {
+type QuizPageProps = {
+    dataPromise: Promise<Awaited<ReturnType<typeof getFullQuizData>>>;
+}
+export default function QuizPage({dataPromise}: QuizPageProps) {
     const router = useRouter();
+    const data = use(dataPromise);
     const [current, setCurrent] = useState(0);
     const [score, setScore] = useState(0);
-    const [quiz, setQuiz] = useState<Quiz[]>([]);
     const [questions, setQuestions] = useState<QuizQuestion[]>([]);
-    const data = use(dataPromise);
+
+    data.
 
     const handleNext = (isCorrect: boolean) => {
         if (isCorrect) setScore((s) => s + 1);

@@ -10,21 +10,6 @@ export async function createUserWithScore(quizId: number) {
         }
     })
 }
-
-export async function getLatestUser() {
-    const data = await prisma.user.findFirst({
-        select: {
-            id: true,
-            score: true,
-        },
-        orderBy: {
-            id: 'desc',
-        }
-    })
-    console.log("get latestet User data: " + data);
-    return data || undefined;
-}
-
 export async function updateUserQuizId (userId: number, quizId: number) {
     await prisma.user.update({
         where: {
@@ -36,14 +21,32 @@ export async function updateUserQuizId (userId: number, quizId: number) {
     })
 }
 
-export async function getUserScore () {
-    const userid = getLatestUser()
+export async function getLatestUser() {
     const data = await prisma.user.findFirst({
-        where: {
-            id: userid,
-        },
-        include: {
+        select: {
+            id: true,
             score: true,
+        },
+        orderBy: {
+            id: 'desc',
         }
     })
+    console.log("get latest User data: " + data);
+    return data;
 }
+
+// export async function getUserScore () {
+//     const userid = await getLatestUser()
+//     if (!userid) {
+//         throw new Error("User not found")
+//     }
+//     const data = await prisma.user.findFirst({
+//         where: {
+//             id: userid.id
+//         },
+//         include: {
+//             score: true,
+//         }
+//     })
+//     return data
+// }

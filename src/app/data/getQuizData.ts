@@ -1,7 +1,12 @@
 import prisma from "../../../lib/prisma";
 
 export async function getFullQuizData() {
-    const data = prisma.quiz.findMany();
+    const data = await prisma.quiz.findMany({
+        include: {
+            questions: true
+        }
+        }
+    );
     console.log("full quiz data: " + data);
     return data;
 }
@@ -18,8 +23,8 @@ export async function getQuizNames(){
     return data;
 }
 
-export function getQuizQestions (userId: number) {
-    const quizId = prisma.user.findUnique({
+export async function getQuizQestions (userId: number) {
+    const quizIdObject = await prisma.user.findUnique({
         where: {
             id: userId
         },
@@ -27,10 +32,13 @@ export function getQuizQestions (userId: number) {
             quizId: true,
         }
     })
+    if (!quizIdObject) {
+        throw new Error(`User with id ${userId} not found`);
+    }
 
-    const data = prisma.quiz.findMany({
+    const data = await prisma.quiz.findMany({
         where: {
-            id: quizId
+            id: quizIdObject.quizId
         }
     })
 

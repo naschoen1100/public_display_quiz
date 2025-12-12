@@ -2,6 +2,8 @@ import SpinningWheel from "@/app/components /SpinningWheel";
 import {Suspense} from "react";
 import {getQuizNames} from "@/app/data/getQuizData";
 
+type data = Awaited<ReturnType<typeof getQuizNames>>;
+
 export default function EntryPage () {
     const dataPromise = getQuizNames();
     return (

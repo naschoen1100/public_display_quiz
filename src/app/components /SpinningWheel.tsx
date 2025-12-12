@@ -3,9 +3,12 @@
 import {use, useState} from "react";
 import { Wheel } from "react-custom-roulette";
 import {useRouter} from "next/navigation";
+import {getQuizNames} from "@/app/data/getQuizData";
 
-// @ts-ignore
-export default function SpinningWheel({dataPromise}) {
+type SpinningWheelProps = {
+    dataPromise: Promise<Awaited<ReturnType<typeof getQuizNames>>>;
+    }
+export default function SpinningWheel({dataPromise}: SpinningWheelProps) {
     const data = use(dataPromise);
     const router = useRouter();
     const [mustSpin, setMustSpin] = useState(false);
