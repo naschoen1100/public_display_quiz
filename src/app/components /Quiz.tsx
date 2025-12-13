@@ -15,8 +15,6 @@ export default function QuizPage({dataPromise}: QuizPageProps) {
     const [score, setScore] = useState(0);
     const [questions, setQuestions] = useState<QuizQuestion[]>([]);
 
-    data.
-
     const handleNext = (isCorrect: boolean) => {
         if (isCorrect) setScore((s) => s + 1);
         setCurrent((c) => c + 1);

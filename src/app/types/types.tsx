@@ -3,7 +3,7 @@ export type QuizEntriesWithoutQuestions = {
     title: string;
 };
 
-export type QuizQuestion = {
+export type Question = {
     text: string
     answers: string[]
     correctAnswer: number
@@ -12,5 +12,5 @@ export type QuizQuestion = {
 export type Quiz = {
     id: number
     title: string
-    questions: QuizQuestion[]
+    questions: Question[]
 }

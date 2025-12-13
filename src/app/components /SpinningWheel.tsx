@@ -8,6 +8,7 @@ import {getQuizNames} from "@/app/data/getQuizData";
 type SpinningWheelProps = {
     dataPromise: Promise<Awaited<ReturnType<typeof getQuizNames>>>;
     }
+
 export default function SpinningWheel({dataPromise}: SpinningWheelProps) {
     const data = use(dataPromise);
     const router = useRouter();
