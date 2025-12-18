@@ -157,62 +157,62 @@
           "Wenige Freunde"
         ],
         "correctAnswer": 2
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Social Engineering",
+    "questions": [
+      {
+        "text": "Was ist Social Engineering?",
+        "answers": [
+          "Hardware Hacking",
+          "Manipulation von Menschen, um Informationen zu bekommen",
+          "Malware auf USB-Sticks",
+          "Das Erstellen von Fake-Webseiten"
+        ],
+        "correctAnswer": 1
       },
       {
-        "id": 4,
-        "title": "Social Engineering",
-        "questions": [
-          {
-            "text": "Was ist Social Engineering?",
-            "answers": [
-              "Hardware Hacking",
-              "Manipulation von Menschen, um Informationen zu bekommen",
-              "Malware auf USB-Sticks",
-              "Das Erstellen von Fake-Webseiten"
-            ],
-            "correctAnswer": 1
-          },
-          {
-            "text": "Welche Methode nutzen Social Engineers typischerweise?",
-            "answers": [
-              "Netzwerkanalyse",
-              "Vortäuschen einer Autoritätsrolle",
-              "KI-Bildbearbeitung",
-              "Hardware-Manipulation"
-            ],
-            "correctAnswer": 1
-          },
-          {
-            "text": "Welches Verhalten ist sicher?",
-            "answers": [
-              "Fremden sofort Zugang gewähren",
-              "Ausweise und Legitimation prüfen",
-              "Unbekannten vertrauliche Infos geben",
-              "Sicherheitsregeln ignorieren, wenn jemand freundlich ist"
-            ],
-            "correctAnswer": 1
-          },
-          {
-            "text": "Was beschreibt den 'Pretexting'-Angriff?",
-            "answers": [
-              "Malware-Installation",
-              "Eine erfundene Geschichte, um Vertrauen zu gewinnen",
-              "Passwortdiebstahl durch Software",
-              "Browserumleitungen"
-            ],
-            "correctAnswer": 1
-          },
-          {
-            "text": "Was ist ein rotes Flag bei einem unerwarteten Anruf?",
-            "answers": [
-              "Freundlicher Ton",
-              "Hintergrundgeräusche",
-              "Dringende Forderung nach sensiblen Daten",
-              "Lange Gesprächspausen"
-            ],
-            "correctAnswer": 2
-          }
-        ]
+        "text": "Welche Methode nutzen Social Engineers typischerweise?",
+        "answers": [
+          "Netzwerkanalyse",
+          "Vortäuschen einer Autoritätsrolle",
+          "KI-Bildbearbeitung",
+          "Hardware-Manipulation"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "text": "Welches Verhalten ist sicher?",
+        "answers": [
+          "Fremden sofort Zugang gewähren",
+          "Ausweise und Legitimation prüfen",
+          "Unbekannten vertrauliche Infos geben",
+          "Sicherheitsregeln ignorieren, wenn jemand freundlich ist"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "text": "Was beschreibt den 'Pretexting'-Angriff?",
+        "answers": [
+          "Malware-Installation",
+          "Eine erfundene Geschichte, um Vertrauen zu gewinnen",
+          "Passwortdiebstahl durch Software",
+          "Browserumleitungen"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "text": "Was ist ein rotes Flag bei einem unerwarteten Anruf?",
+        "answers": [
+          "Freundlicher Ton",
+          "Hintergrundgeräusche",
+          "Dringende Forderung nach sensiblen Daten",
+          "Lange Gesprächspausen"
+        ],
+        "correctAnswer": 2
       }
     ]
   }

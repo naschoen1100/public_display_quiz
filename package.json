@@ -8,7 +8,7 @@
     "db:studio": "prisma studio",
     "db:push": "prisma db push",
     "db:generate": "prisma generate",
-    "db:seed": "prisma seed",
+    "db:seed": "prisma db seed",
     "format": "prettier --write .",
     "vercel:deploy": "vercel --prod"
   },
