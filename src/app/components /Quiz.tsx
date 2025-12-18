@@ -38,11 +38,11 @@ export default function  QuizPage({dataPromise}: QuizPageProps) {
     }
     const question = quizQuestions[current];
     return (
-        <div className={"flex items-center justify-center bg-cyan-600"}>
-                <QuizCard
-                    question={question}
-                    onNext={handleNext}
-                />
-        </div>
+        <>
+            <QuizCard
+                question={question}
+                onNext={handleNext}
+            />
+        </>
     );
 }
