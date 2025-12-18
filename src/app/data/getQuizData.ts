@@ -30,8 +30,11 @@ export async function getQuizNames(){
 }
 
 export async function getQuizQestions () {
-    const userIDObject = await getLatestUser();
-    const userId = userIDObject.id
+    const user = await getLatestUser();
+    if (!user) {
+        throw new Error("User not found");
+    }
+    const userId = user.id
     const quizIdObject = await prisma.user.findUnique({
         where: {
             id: userId

@@ -57,6 +57,9 @@ export async function getUserScore () {
 
 export async function updateUserScore(){
     const user = await getLatestUser()
+    if (!user) {
+        throw new Error("User not found");
+    }
     await prisma.score.update({
         where: {
             userId: user.id
