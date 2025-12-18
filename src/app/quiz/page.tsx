@@ -1,9 +1,9 @@
 import {Suspense} from "react";
-import {getFullQuizData} from "@/app/data/getQuizData";
+import {getQuizQestions} from "@/app/data/getQuizData";
 import QuizPage from "@/app/components /Quiz";
 
 export default function Page() {
-    const dataPromise = getFullQuizData();
+    const dataPromise = getQuizQestions();
 
     return (
         <div className={"flex items-center justify-center bg-cyan-600"}>

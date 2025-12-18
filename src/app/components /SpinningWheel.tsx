@@ -1,9 +1,9 @@
 "use client";
-
 import {use, useState} from "react";
 import { Wheel } from "react-custom-roulette";
 import {useRouter} from "next/navigation";
 import {getQuizNames} from "@/app/data/getQuizData";
+import {createUserWithScore} from "@/app/data/handleUser";
 
 type SpinningWheelProps = {
     dataPromise: Promise<Awaited<ReturnType<typeof getQuizNames>>>;
@@ -16,15 +16,17 @@ export default function SpinningWheel({dataPromise}: SpinningWheelProps) {
     const [button1Pressed, setButton1Pressed] = useState(false);
     const [button2Pressed, setButton2Pressed] = useState(false);
     const [prizeNumber, setPrizeNumber] = useState(0);
-
     const handleSpin = () => {
         const randomIndex = Math.floor(Math.random() * data.length);
         setPrizeNumber(randomIndex);
         setMustSpin(true);
     };
 
-    const handleStop = () => {
+    const handleStop = async () => {
         setMustSpin(false);
+        const selectedQuizID =  data[prizeNumber].id;
+        console.log("selectedQuizId: " + selectedQuizID);
+        await createUserWithScore(selectedQuizID)
         router.push(`/quiz`);
     };
 

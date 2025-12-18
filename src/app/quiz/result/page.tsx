@@ -1,13 +1,13 @@
 import {Suspense} from "react";
-import QuizPage from "@/app/components /Quiz";
-import {getFullQuizData} from "@/app/data/getQuizData";
+import {getUserScore} from "@/app/data/handleUser";
+import ResultPage from "@/app/components /ResultText";
 
 export default async function Page() {
-    const dataPromise = getFullQuizData()
+    const dataPromise = getUserScore()
     return (
         <div className={"flex items-center justify-center bg-cyan-600"}>
             <Suspense fallback={<p className={"text-center mt-6"}> ...Loading </p>}>
-                <QuizPage dataPromise = {dataPromise}/>
+                <ResultPage dataPromise = {dataPromise}/>
             </Suspense>
         </div>
     );

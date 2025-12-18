@@ -1,10 +1,10 @@
 'use client'
 import {use} from "react";
 import {useRouter} from "next/navigation";
-import {getLatestUser} from "@/app/data/handleUser";
+import {getUserScore} from "@/app/data/handleUser";
 
 type ResultPageProps = {
-    dataPromise: Promise<Awaited<ReturnType<typeof getLatestUser>>>;
+    dataPromise: Promise<Awaited<ReturnType<typeof getUserScore>>>;
 }
 export default function ResultPage({dataPromise}: ResultPageProps) {
     const data = use(dataPromise);

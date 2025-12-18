@@ -1,8 +1,3 @@
-export type QuizEntriesWithoutQuestions = {
-    id: number;
-    title: string;
-};
-
 export type Quiz = {
     id: number
     title: string
@@ -19,7 +14,7 @@ export type Answer = {
     isCorrect: boolean
 }
 
-export type ImportQuiz = {
+export type ImportQuizFromJSON = {
     id: number;
     title: string;
     questions: ImportQuestion[];
@@ -29,4 +24,10 @@ export type ImportQuestion = {
     text: string;
     answers: string[];
     correctAnswer: number; // Index
+};
+
+export type UIQuestion = {
+    text: string;
+    answers: string[];
+    correctAnswer: number;
 };

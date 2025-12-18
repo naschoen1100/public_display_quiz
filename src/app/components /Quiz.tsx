@@ -1,35 +1,46 @@
 'use client'
-import {use, useState} from "react";
+import {use, useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
+import {Question, UIQuestion} from "@/app/types/types";
+import {getQuizQestions} from "@/app/data/getQuizData";
 import QuizCard from "@/app/components /QuizCard";
-import {QuizQuestion} from "@/app/types/types";
-import {getFullQuizData} from "@/app/data/getQuizData";
 
 type QuizPageProps = {
-    dataPromise: Promise<Awaited<ReturnType<typeof getFullQuizData>>>;
+    dataPromise: Promise<Awaited<ReturnType<typeof getQuizQestions>>>;
 }
-export default function QuizPage({dataPromise}: QuizPageProps) {
+
+function mapDBQuestionToQuizQuestion(question: Question): UIQuestion {
+    return {
+        text: question.text,
+        answers: question.answers.map(a => a.text),
+        correctAnswer: question.answers.findIndex(a => a.isCorrect),
+    };
+}
+export default function  QuizPage({dataPromise}: QuizPageProps) {
     const router = useRouter();
     const data = use(dataPromise);
     const [current, setCurrent] = useState(0);
-    const [score, setScore] = useState(0);
-    const [questions, setQuestions] = useState<QuizQuestion[]>([]);
+    const quizQuestions = data.map(mapDBQuestionToQuizQuestion);
+    const isFinished = current >= data.length
 
-    const handleNext = (isCorrect: boolean) => {
-        if (isCorrect) setScore((s) => s + 1);
+
+    const handleNext = () => {
         setCurrent((c) => c + 1);
     };
-    if (current >= 4) {
-        router.push("/result");
-    }
+    useEffect(() => {
+        if (isFinished) {
+            router.push("/quiz/result");
+        }
+    }, [isFinished, router]);
 
-    const q = questions[current];
+    if(isFinished) {
+        return <p>Quiz beendet</p>
+    }
+    const question = quizQuestions[current];
     return (
         <div className={"flex items-center justify-center bg-cyan-600"}>
                 <QuizCard
-                    question={q.text}
-                    options={q.answers}
-                    correctAnswer={q.correctAnswer}
+                    question={question}
                     onNext={handleNext}
                 />
         </div>
