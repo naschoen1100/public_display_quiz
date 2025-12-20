@@ -17,7 +17,9 @@ model User {
   id        Int      @id @default(autoincrement())
   score   Score?
   quizId    Int // welches Quiz?
+  answers   UserAnswer[]
   createdAt DateTime @default(now())
+  completedAt DateTime? @default(now())
 }
 
 model Score {
@@ -26,6 +28,18 @@ model Score {
   userId Int @unique
   points    Int? // erreichte Punkte
   createdAt DateTime @default(now())
+}
+
+model UserAnswer {
+  id         Int      @id @default(autoincrement())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     Int
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  questionId Int
+  isCorrect  Boolean
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, questionId])
 }
 
 model Quiz {
@@ -40,6 +54,7 @@ model Question {
   quiz    Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
   quizId  Int
   answers Answer[]
+  userAnswers UserAnswer[]
 }
 
 model Answer {

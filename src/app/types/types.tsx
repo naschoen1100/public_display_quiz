@@ -5,6 +5,7 @@ export type Quiz = {
 }
 
 export type Question = {
+    id: number
     text: string
     answers: Answer[]
 }
@@ -27,6 +28,7 @@ export type ImportQuestion = {
 };
 
 export type UIQuestion = {
+    id: number;
     text: string;
     answers: string[];
     correctAnswer: number;

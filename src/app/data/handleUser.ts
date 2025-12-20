@@ -1,6 +1,7 @@
 "use server";
 
 import prisma from "../../../prisma/prisma";
+import {now} from "effect/DateTime";
 
 export async function createUserWithScore(quizId: number) {
     await prisma.user.create({
@@ -11,6 +12,18 @@ export async function createUserWithScore(quizId: number) {
                     points: 0
                 }
             }
+        }
+    })
+}
+
+export async function setUserQuizFinished() {
+    const user = await getLatestUser()
+    prisma.user.update({
+        where: {
+            id: user.id
+        },
+        data: {
+            completedAt: new Date()
         }
     })
 }
@@ -36,30 +49,14 @@ export async function getLatestUser() {
             id: 'desc',
         }
     })
-    return data;
-}
-
-export async function getUserScore () {
-    const userid = await getLatestUser()
-    if (!userid) {
-        throw new Error("User not found")
+    if (!data) {
+        throw new Error("User not found");
     }
-    const data = await prisma.user.findFirst({
-        where: {
-            id: userid.id
-        },
-        include: {
-            score: true,
-        }
-    })
-    return data
+    return data;
 }
 
 export async function updateUserScore(){
     const user = await getLatestUser()
-    if (!user) {
-        throw new Error("User not found");
-    }
     await prisma.score.update({
         where: {
             userId: user.id
@@ -73,13 +70,21 @@ export async function updateUserScore(){
 
 export async function deleteUser() {
     const user = await getLatestUser()
-    if (!user) {
-        throw new Error("User not found");
-    }
     await prisma.user.delete({
         where: {
             id: user.id
         }
     })
     console.log("user deleted")
+}
+
+export async function setUserAnswer(questionId: number, isCorrect: boolean) {
+    const user = await getLatestUser()
+    await prisma.userAnswer.create({
+        data: {
+            userId: user.id,
+            questionId: questionId,
+            isCorrect: isCorrect
+        }
+    })
 }

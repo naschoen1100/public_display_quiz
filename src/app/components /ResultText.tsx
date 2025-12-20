@@ -1,7 +1,7 @@
 'use client'
 import {use} from "react";
 import {useRouter} from "next/navigation";
-import {getUserScore} from "@/app/data/handleUser";
+import {getUserScore} from "@/app/data/handleAnswerStatistics";
 
 type ResultPageProps = {
     dataPromise: Promise<Awaited<ReturnType<typeof getUserScore>>>;

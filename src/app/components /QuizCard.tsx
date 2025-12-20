@@ -6,11 +6,11 @@ import {useRouter} from "next/navigation";
 
 export type QuizCardProps = {
     question: UIQuestion;
-    onNext: (isCorrect: boolean) => void;
+    onNext: (isCorrect: boolean, selected: number) => void;
 };
 
 export default function QuizCard({question, onNext}: QuizCardProps) {
-    const [selected, setSelected] = useState<number | null>(null);
+    const [selected, setSelected] = useState<number>(0);
     const [answered, setAnswered] = useState(false);
     const router = useRouter();
 
@@ -24,13 +24,13 @@ export default function QuizCard({question, onNext}: QuizCardProps) {
         if (isCorrect){
             await updateUserScore()
         }
-        onNext(isCorrect)
-        setSelected(null);
+        onNext(isCorrect, selected);
         setAnswered(false);
     };
 
     const handleStartNew = async () => {
         deleteUser()
+        setAnswered(false)
     }
 
     return (
@@ -42,7 +42,7 @@ export default function QuizCard({question, onNext}: QuizCardProps) {
                     <div className="grid overflow-y-scroll grid-rows-4 gap-4 mt-8">
                        {question.answers.map((option) =>
                            <button className={`btn w-[500px] h-14 text-lg justify-start${
-                               selected === question.answers.indexOf(option)? " btn-info " : " btn"}`}
+                               answered && selected === question.answers.indexOf(option)? " btn-info " : " btn"}`}
                                key={option}
                                onClick={() => {
                                    handleAnswer(option)}}

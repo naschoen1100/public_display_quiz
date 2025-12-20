@@ -1,6 +1,6 @@
 import {Suspense} from "react";
-import {getUserScore} from "@/app/data/handleUser";
 import ResultPage from "@/app/components /ResultText";
+import {getUserScore} from "@/app/data/handleAnswerStatistics";
 
 export default async function Page() {
     const dataPromise = getUserScore()
