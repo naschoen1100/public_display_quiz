@@ -1,7 +1,7 @@
 'use client'
 import React, {useState} from "react";
 import {UIQuestion} from "@/app/types/types";
-import {updateUserScore} from "@/app/data/handleUser";
+import {deleteUser, updateUserScore} from "@/app/data/handleUser";
 import {useRouter} from "next/navigation";
 
 export type QuizCardProps = {
@@ -30,7 +30,7 @@ export default function QuizCard({question, onNext}: QuizCardProps) {
     };
 
     const handleStartNew = async () => {
-        //todo delete db entry for this user
+        deleteUser()
     }
 
     return (

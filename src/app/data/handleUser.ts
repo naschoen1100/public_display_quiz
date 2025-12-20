@@ -70,3 +70,16 @@ export async function updateUserScore(){
     })
     console.log("updated score..." + JSON.stringify(user))
 }
+
+export async function deleteUser() {
+    const user = await getLatestUser()
+    if (!user) {
+        throw new Error("User not found");
+    }
+    await prisma.user.delete({
+        where: {
+            id: user.id
+        }
+    })
+    console.log("user deleted")
+}

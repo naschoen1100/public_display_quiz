@@ -22,7 +22,7 @@ model User {
 
 model Score {
   id     Int  @id @default(autoincrement())
-  user   User @relation(fields: [userId], references: [id])
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId Int @unique
   points    Int? // erreichte Punkte
   createdAt DateTime @default(now())
@@ -37,7 +37,7 @@ model Quiz {
 model Question {
   id      Int      @id @default(autoincrement())
   text    String
-  quiz    Quiz     @relation(fields: [quizId], references: [id])
+  quiz    Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
   quizId  Int
   answers Answer[]
 }
@@ -46,6 +46,6 @@ model Answer {
   id         Int      @id @default(autoincrement())
   text       String
   isCorrect  Boolean  @default(false)
-  question   Question @relation(fields: [questionId], references: [id])
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
   questionId Int
 }
