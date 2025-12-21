@@ -55,6 +55,7 @@ export default function  QuizPage({dataPromise}: QuizPageProps) {
             <>
                 <QuizCard
                     question={question}
+                    questionCount={current + 1}
                     onNext={handleNextAnswer}
                 />
             </>

@@ -55,7 +55,7 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
                     </div>
 
                     {/* Feedback Text */}
-                    <div className="flex-1 bg-slate-50 border border-slate-200 rounded-lg p-3 text-sm text-slate-700">
+                    <div className="flex-1 bg-base-100 border border-slate-200 rounded-lg p-3 text-sm text-slate-300">
                         xyz
                     </div>
 

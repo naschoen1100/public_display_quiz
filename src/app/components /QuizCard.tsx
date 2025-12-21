@@ -6,10 +6,11 @@ import {useRouter} from "next/navigation";
 
 export type QuizCardProps = {
     question: UIQuestion;
+    questionCount: number;
     onNext: (isCorrect: boolean, selected: number) => void;
 };
 
-export default function QuizCard({question, onNext}: QuizCardProps) {
+export default function QuizCard({question, questionCount, onNext}: QuizCardProps) {
     const [selected, setSelected] = useState<number>(0);
     const [answered, setAnswered] = useState(false);
     const router = useRouter();
@@ -72,10 +73,10 @@ export default function QuizCard({question, onNext}: QuizCardProps) {
                             </div>
                             <progress
                                 className="progress progress-primary w-full"
-                                value={40}
+                                value={100*(questionCount/5)}
                                 max={100}
                             />
-                            <p className="text-sm text-center opacity-70">Frage 2 von 5</p>
+                            <p className="text-sm text-center opacity-70"> Frage {questionCount} von 5</p>
                         </div>
 
                     </div>
