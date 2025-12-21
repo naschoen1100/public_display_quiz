@@ -36,8 +36,8 @@ export default function QuizCard({question, questionCount, onNext}: QuizCardProp
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-800 to-slate-8500 p-4">
-            <div className = "card w-[550px] h-[520px] bg-base-100 shadow-2xl rounded-2xl" >
-                <div className="card-body space-y-6">
+            <div className = "card w-[550px] h-[520px] bg-cyan-700 shadow-2xl rounded-2xl" >
+                <div className="card-body  space-y-6">
                     <div className={"flex flex-col items-center justify-center"}>
                         <h2 className="card-title ">{question.text}</h2>
                     <div className="grid overflow-y-scroll grid-rows-4 gap-4 mt-8">
@@ -46,7 +46,8 @@ export default function QuizCard({question, questionCount, onNext}: QuizCardProp
                                answered && selected === question.answers.indexOf(option)? " btn-info " : " btn"}`}
                                key={option}
                                onClick={() => {
-                                   handleAnswer(option)}}
+                                   handleAnswer(option)
+                               }}
                            >
                                {option}
                            </button>)
@@ -72,7 +73,7 @@ export default function QuizCard({question, questionCount, onNext}: QuizCardProp
 
                             </div>
                             <progress
-                                className="progress progress-primary w-full"
+                                className="progress w-full"
                                 value={100*(questionCount/5)}
                                 max={100}
                             />

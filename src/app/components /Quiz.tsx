@@ -1,25 +1,19 @@
 'use client'
 import {use, useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
-import {Question, UIQuestion} from "@/app/types/types";
 import {getQuizQestions} from "@/app/data/getQuizData";
 import QuizCard from "@/app/components /QuizCard";
 import {setUserAnswer, setUserQuizFinished} from "@/app/data/handleUser";
 import QuizFeedback from "@/app/components /QuizFeedback";
+import {useInactivityTimeout} from "@/app/util/useInactivityTimeout";
+import {mapDBQuestionToQuizQuestion} from "@/app/util/mapDBQuestionToQuiz";
 
 type QuizPageProps = {
     dataPromise: Promise<Awaited<ReturnType<typeof getQuizQestions>>>;
 }
 
-function mapDBQuestionToQuizQuestion(question: Question): UIQuestion {
-    return {
-        id: question.id,
-        text: question.text,
-        answers: question.answers.map(a => a.text),
-        correctAnswer: question.answers.findIndex(a => a.isCorrect),
-    };
-}
 export default function  QuizPage({dataPromise}: QuizPageProps) {
+    useInactivityTimeout(60000*3);
     const router = useRouter();
     const data = use(dataPromise);
     const [current, setCurrent] = useState(0);

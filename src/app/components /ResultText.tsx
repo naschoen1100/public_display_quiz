@@ -2,11 +2,13 @@
 import {use} from "react";
 import {useRouter} from "next/navigation";
 import {getUserScore} from "@/app/data/handleAnswerStatistics";
+import {useInactivityTimeout} from "@/app/util/useInactivityTimeout";
 
 type ResultPageProps = {
     dataPromise: Promise<Awaited<ReturnType<typeof getUserScore>>>;
 }
 export default function ResultPage({dataPromise}: ResultPageProps) {
+    useInactivityTimeout(60000*3);
     const data = use(dataPromise);
     const router = useRouter();
     const points = data?.score?.points ?? 0;
