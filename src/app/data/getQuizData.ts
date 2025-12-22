@@ -25,7 +25,7 @@ export async function getQuizNames(){
             questions: false,
         }
     });
-    console.log("Quiz Names: ", data);
+  //  console.log("Quiz Names: ", data);
     return data;
 }
 
@@ -56,6 +56,6 @@ export async function getQuizQestions () {
         }
     })
 
-    console.log("Quiz Qestions: ", data);
+  //  console.log("Quiz Qestions: ", data);
     return data;
 }

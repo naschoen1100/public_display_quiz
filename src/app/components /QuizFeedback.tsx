@@ -1,6 +1,7 @@
 'use client'
 
 import {UIQuestion} from "@/app/types/types";
+import Feedback from "@/app/components /Feedback";
 
 type FeedbackProps = {
     question: UIQuestion;
@@ -56,7 +57,7 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
 
                     {/* Feedback Text */}
                     <div className="flex-1  rounded-lg p-3 text-sm text-slate-300">
-                        xyz
+                        <Feedback questionId={question.id}/>
                     </div>
 
                     {/* Footer */}
