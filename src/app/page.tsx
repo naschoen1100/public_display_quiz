@@ -4,7 +4,7 @@ import {getQuizNames} from "@/app/data/getQuizData";
 import {importQuizzes} from "@/app/data/createQuizData";
 export const dynamic = "force-dynamic";
 export default async function EntryPage () {
-    await importQuizzes()
+    //await importQuizzes()
     const dataPromise = getQuizNames();
     return (
         <>
