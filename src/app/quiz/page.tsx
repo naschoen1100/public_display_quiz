@@ -1,7 +1,7 @@
 import {Suspense} from "react";
 import {getQuizQestions} from "@/app/data/getQuizData";
 import QuizPage from "@/app/components /Quiz";
-
+export const dynamic = "force-dynamic";
 export default function Page() {
     const dataPromise = getQuizQestions();
 
