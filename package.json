@@ -10,7 +10,8 @@
     "db:generate": "prisma generate",
     "db:seed": "prisma db seed",
     "format": "prettier --write .",
-    "vercel:deploy": "vercel --prod"
+    "vercel:deploy": "vercel --prod",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.1.0",

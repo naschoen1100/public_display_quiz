@@ -24,11 +24,14 @@ export default function LeaderBoard () {
 
     return (
         <div className= "flex flex-col items-center justify-center">
-            <progress
-                className="progress w-60 h-3 rotate-270"
-                value={stats?.rank}
-                max={stats?.totalPlayers}
-            />
+            <div className = "h-30">
+                <progress
+                    className="progress w-60 h-3 rotate-270"
+                    value={stats?.rank}
+                    max={stats?.totalPlayers}
+                />
+            </div>
+            <p>Ranking</p>
         </div>
     )
 }

@@ -6,10 +6,10 @@ const adapter = new PrismaPg ({
 })
 
 const PrismaClientSingleton = () => {
-   return new PrismaClient({adapter});
+    return new PrismaClient({adapter});
 }
 declare const globalThis: {
-   prismaGlobal: ReturnType<typeof PrismaClientSingleton>;
+    prismaGlobal: ReturnType<typeof PrismaClientSingleton>;
 } & typeof global;
 const prisma= globalThis.prismaGlobal ?? PrismaClientSingleton();
 
