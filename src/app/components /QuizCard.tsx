@@ -36,7 +36,7 @@ export default function QuizCard({question, questionCount, onNext}: QuizCardProp
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-800 to-slate-8500 p-4">
-            <div className = "card w-[550px] h-[520px] bg-cyan-700 shadow-2xl rounded-2xl" >
+            <div className = "card w-[550px] min-h-[520px] bg-cyan-700 shadow-2xl rounded-2xl" >
                 <div className="card-body  space-y-6">
                     <div className={"flex flex-col items-center justify-center"}>
                         <h2 className="card-title ">{question.text}</h2>

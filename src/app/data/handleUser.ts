@@ -43,6 +43,7 @@ export async function getLatestUser() {
     const data = await prisma.user.findFirst({
         select: {
             id: true,
+            quizId: true,
             score: true,
         },
         orderBy: {

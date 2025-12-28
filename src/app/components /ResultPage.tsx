@@ -15,10 +15,10 @@ export default function ResultPage({dataPromise}: ResultPageProps) {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-800 to-slate-8500 p-4">
-                <div className = "card w-[550px] h-[520px] bg-base-100 shadow-2xl rounded-2xl" >
+                <div className = "card w-[550px] h-[520px] bg-cyan-700 shadow-2xl rounded-2xl" >
                     <div className="card-body space-y-6">
                         <div className={"flex flex-col items-center justify-center"}>
-                            <h1  className="text 4xl md:text-4xl lg:text-5xl font-extrabold text-center uppercase p-4 m-6 text-cyan-700" >
+                            <h1  className="text 4xl md:text-4xl lg:text-5xl font-extrabold text-center uppercase p-4 m-6" >
                             Quiz beendet!
                         </h1>
                             <p className={"text 4xl md:text-2xl lg:text-2xl font-semibold"}>

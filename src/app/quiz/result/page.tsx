@@ -1,5 +1,5 @@
 import {Suspense} from "react";
-import ResultPage from "@/app/components /ResultText";
+import ResultPage from "@/app/components /ResultPage";
 import {getUserScore} from "@/app/data/handleAnswerStatistics";
 
 export default async function Page() {

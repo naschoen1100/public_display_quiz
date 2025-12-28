@@ -39,3 +39,50 @@ export async function getDataPerQuestion (questionId: number) {
     console.log("percentage", correctCount/answerCount)
     return correctCount/answerCount
 }
+
+export async function getDataForRecentQuestions() {
+    const user = await getLatestUser();
+    //answeredCount = anzahl der bisher beantworteten Fragen des aktuellen Users
+    const answeredCount = await prisma.userAnswer.count({
+        where: {
+            userId: user.id,
+        },
+    });
+    // Score des aktuellen Users um den vergleichen zu können
+    const myPoints = await prisma.userAnswer.count({
+        where: {
+            userId: user.id,
+            isCorrect: true,
+        },
+    });
+    // Anzahl an Player, die das aktuelle Quiz zu ende gespielt haben
+    const totalPlayers = await prisma.user.count({
+        where: {
+            quizId: user.quizId,
+            completedAt: { not: null },
+        },
+    });
+    // alle user die das aktuelle Quiz gespielt haben mit ihren richtigen Antworten
+    const users = await prisma.user.findMany({
+        where: {
+            quizId: user.quizId,
+        },
+        select: {
+            id: true,
+            answers: {
+                orderBy: { createdAt: "asc" },
+                take: answeredCount,
+                where: { isCorrect: true },
+            },
+        },
+    });
+    //vergleich und filter der eigenen Punkte mit der Anzahl an richtigen Antworten pro user, der das aktuelle Quiz gespielt hat
+    const betterPlayers = users.filter(
+        (u) => u.answers.length > myPoints
+    ).length;
+    //rank = betterPlayers + 1, weil count bei 0 anfängt
+    const rank = totalPlayers - (betterPlayers);
+    console.log("rank", rank);
+    console.log("totalPlayers", totalPlayers);
+    return {totalPlayers, rank};
+}
