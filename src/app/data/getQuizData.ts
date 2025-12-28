@@ -55,7 +55,5 @@ export async function getQuizQestions () {
             answers: true
         }
     })
-
-  //  console.log("Quiz Qestions: ", data);
     return data;
 }
