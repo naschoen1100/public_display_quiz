@@ -31,7 +31,7 @@ export default function LeaderBoard () {
                     max={stats?.totalPlayers}
                 />
             </div>
-            <p>Ranking</p>
+            <p className="text xl p-5 ">Ranking</p>
         </div>
     )
 }

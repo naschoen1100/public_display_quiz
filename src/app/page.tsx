@@ -7,12 +7,12 @@ export default async function EntryPage () {
     const dataPromise = getQuizNames();
     return (
         <>
-            <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-600 to-slate-800  p-4">
-                <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold text-center uppercase p-4 text-cyan-700">
+            <div className="min-h-screen flex flex-col items-center justify-center p-[4vmin] bg-gradient-to-br from-slate-600 to-slate-800">
+                <h1 className="font-extrabold text-center uppercase text-cyan-700 text-[clamp(3rem,10vmin,12rem)]">
                     Welcome!
                 </h1>
-                <div className="mt-2">
-                    <Suspense fallback={<p className={"text-center mt-6"}> ...Loading </p>}>
+                <div className="mt-[2vmin] w-[80vmin] max-w-[90vmin] aspect-square">
+                    <Suspense fallback={<p className="text-center mt-6 text-[clamp(1rem,3vmin,2rem)]"> ...Loading </p>}>
                         <SpinningWheel dataPromise = {dataPromise}/>
                     </Suspense>
                 </div>
