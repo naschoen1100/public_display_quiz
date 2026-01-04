@@ -57,7 +57,7 @@ export default function SpinningWheel({dataPromise}: SpinningWheelProps) {
             prizeNumber={prizeNumber}
             data={labels}
             onStopSpinning={handleStop}
-            backgroundColors={["#facc15", "#f97316"]}
+            backgroundColors={["#9ae600", "#5ea500"]}
             textColors={["#000"]}
             outerBorderColor={"#000"}/>
         <div className="flex items-center justify-center">
