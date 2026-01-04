@@ -19,7 +19,7 @@ model User {
   quizId    Int // welches Quiz?
   answers   UserAnswer[]
   createdAt DateTime @default(now())
-  completedAt DateTime? @default(now())
+  completedAt DateTime?
 }
 
 model Score {
