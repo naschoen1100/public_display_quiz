@@ -17,10 +17,9 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-slate-600 to-slate-800  p-4">
+        <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-slate-600 to-slate-800 p-4">
             <div className="card w-[550px] min-h-[550px]  bg-cyan-700  shadow-xl rounded-2xl">
-                <div className="card-body h-full flex flex-col gap-4">
-
+                <div className="card-body flex flex-col gap-4">
                     {/* Feedback Header */}
                     <div
                         className={`text-center font-bold text-lg py-2 rounded-lg
@@ -30,6 +29,7 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
                         {isCorrect ? "right Answer" : "wrong Answer"}
                     </div>
 
+                    <div className="flex-1 flex flex-col gap-4">
                     {/* Question */}
                     <div className="text-sm font-semibold text-slate-300 justify-center text-center">
                         {question.text}

@@ -51,7 +51,7 @@ export default function SpinningWheel({dataPromise}: SpinningWheelProps) {
     }));
 
     return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center p-10">
         <Wheel
             mustStartSpinning={mustSpin}
             prizeNumber={prizeNumber}
@@ -63,14 +63,14 @@ export default function SpinningWheel({dataPromise}: SpinningWheelProps) {
             outerBorderColor={"#000"}/>
         <div className="flex items-center justify-center">
             <button
-                className="btn btn-lg m-5 bg-cyan-700"
+                className="btn btn-lg m-5 bg-cyan-600"
                 disabled={button1Pressed}
                 onClick={() => {handleOnClickButton1()}}
             >
                 Lets Play
             </button>
             <button
-                className="btn btn-lg m-5 bg-cyan-700"
+                className="btn btn-lg m-5 bg-cyan-600"
                 disabled={button2Pressed}
                 onClick={handleOnClickButton2}
             >

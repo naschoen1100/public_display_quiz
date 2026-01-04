@@ -1,7 +1,6 @@
 "use server";
 
 import prisma from "../../../prisma/prisma";
-import {now} from "effect/DateTime";
 
 export async function createUserWithScore(quizId: number) {
     await prisma.user.create({
@@ -18,7 +17,7 @@ export async function createUserWithScore(quizId: number) {
 
 export async function setUserQuizFinished() {
     const user = await getLatestUser()
-    prisma.user.update({
+    await prisma.user.update({
         where: {
             id: user.id
         },
@@ -26,6 +25,7 @@ export async function setUserQuizFinished() {
             completedAt: new Date()
         }
     })
+    console.log("User finished successfully and timestamp added")
 }
 
 export async function updateUserQuizId (userId: number, quizId: number) {
