@@ -24,7 +24,7 @@ export default function Feedback (props: FeedbackProps) {
     return (
         <div className="flex items-center justify-center bg-cyan-700">
             <p className="text-2xl font-bold">
-                {Math.round(stats * 100)}% haben diese Frage richtig beantwortet
+                {Math.round(stats * 100)}% answered this question correctly
             </p>
         </div>
     )

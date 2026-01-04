@@ -77,7 +77,7 @@ export default function QuizCard({question, questionCount, onNext}: QuizCardProp
                                 value={100*(questionCount/5)}
                                 max={100}
                             />
-                            <p className="text-sm text-center opacity-70"> Frage {questionCount} von 5</p>
+                            <p className="text-sm text-center opacity-70"> Question {questionCount} of 5</p>
                         </div>
 
                     </div>

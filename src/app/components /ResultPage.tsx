@@ -19,10 +19,10 @@ export default function ResultPage({dataPromise}: ResultPageProps) {
                     <div className="card-body space-y-6">
                         <div className={"flex flex-col items-center justify-center"}>
                             <h1  className="text 4xl md:text-4xl lg:text-5xl font-extrabold text-center uppercase p-4 m-6" >
-                            Quiz beendet!
+                            Quiz finished!
                         </h1>
                             <p className={"text 4xl md:text-2xl lg:text-2xl font-semibold"}>
-                                Dein Score: {points} / 5
+                                Your score: {points} / 5
                             </p>
                         </div>
 

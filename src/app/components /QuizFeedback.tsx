@@ -27,7 +27,7 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
               ${isCorrect ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"}
             `}
                     >
-                        {isCorrect ? "Richtige Antwort!" : "Falsche Antwort"}
+                        {isCorrect ? "right Answer" : "wrong Answer"}
                     </div>
 
                     {/* Question */}
@@ -68,7 +68,7 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
                     {/* Footer */}
                     <div className="pt-2">
                         <button className="btn w-full" onClick={() => handleNext() }>
-                            Nächste Frage
+                            Next question
                         </button>
                     </div>
 
