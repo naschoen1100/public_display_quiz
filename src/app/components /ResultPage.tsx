@@ -3,6 +3,7 @@ import {use} from "react";
 import {useRouter} from "next/navigation";
 import {getUserScore} from "@/app/data/handleAnswerStatistics";
 import {useInactivityTimeout} from "@/app/util/useInactivityTimeout";
+import Rank from "@/app/components /rank";
 
 type ResultPageProps = {
     dataPromise: Promise<Awaited<ReturnType<typeof getUserScore>>>;
@@ -24,6 +25,7 @@ export default function ResultPage({dataPromise}: ResultPageProps) {
                             <p className={"text 4xl md:text-2xl lg:text-2xl font-semibold"}>
                                 Your score: {points} / 5
                             </p>
+                            <Rank/>
                         </div>
 
                     </div>
