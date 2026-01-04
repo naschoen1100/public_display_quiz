@@ -17,7 +17,7 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-slate-800 to-slate-8500 p-4">
+        <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-slate-600 to-slate-800 p-4">
             <div className="card w-[550px] min-h-[550px]  bg-cyan-700  shadow-xl rounded-2xl">
                 <div className="card-body h-full flex flex-col gap-4">
 
