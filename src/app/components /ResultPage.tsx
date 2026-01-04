@@ -14,10 +14,10 @@ export default function ResultPage({dataPromise}: ResultPageProps) {
     const points = data?.score?.points ?? 0;
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-800 to-slate-8500 p-4">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-600 to-slate-800 p-4">
                 <div className = "card w-[550px] h-[520px] bg-cyan-700 shadow-2xl rounded-2xl" >
                     <div className="card-body space-y-6">
-                        <div className={"flex flex-col items-center justify-center"}>
+                        <div className="flex flex-col items-center justify-center p-6">
                             <h1  className="text 4xl md:text-4xl lg:text-5xl font-extrabold text-center uppercase p-4 m-6" >
                             Quiz finished!
                         </h1>
