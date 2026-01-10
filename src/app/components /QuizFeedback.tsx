@@ -76,5 +76,7 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
             </div>
         </div>
         </div>
+
     );
+
 }
