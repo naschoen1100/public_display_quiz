@@ -35,55 +35,58 @@ export default function QuizCard({question, questionCount, onNext}: QuizCardProp
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-600 to-slate-800  p-4">
-            <div className = "card w-[550px] min-h-[520px] bg-cyan-700 shadow-2xl rounded-2xl" >
-                <div className="card-body  space-y-6">
-                    <div className={"flex flex-col items-center justify-center"}>
-                        <h2 className="card-title ">{question.text}</h2>
-                    <div className="grid overflow-y-scroll grid-rows-4 gap-4 mt-8">
-                       {question.answers.map((option) =>
-                           <button className={`btn w-[500px] h-14 text-lg justify-start${
-                               answered && selected === question.answers.indexOf(option)? " btn-info " : " btn"}`}
-                               key={option}
-                               onClick={() => {
-                                   handleAnswer(option)
-                               }}
-                           >
-                               {option}
-                           </button>)
-                       }
-                    </div>
+        <div
+            className="card w-full max-w-[80vmin] aspect-[4/3] bg-cyan-700 shadow-2xl rounded-2xl p-[clamp(1rem,2vmin,3rem)] flex flex-col justify-between"
+        >
+            {/* Header */}
+            <h2 className="card-title text-center text-[clamp(1.5rem,3vmin,4rem)] font-bold justify-center">
+                {question.text}
+            </h2>
 
-                        <div className=" space-y-4 m-6">
-                            <div className="flex justify-center items-center pt-4">
-                                <button
-                                    className={"btn w-full text-lg m-2 "}
-                                    onClick={() => {
-                                        handleStartNew()
-                                        router.push(`/`)
-                                    }}>
-                                    Start new
-                                </button>
-                                <button
-                                className={"btn w-full text-lg m-2 "}
-                                onClick={() => handleNext()}
-                                disabled={!answered}>
-                                Next
-                            </button>
+            {/* Antworten */}
+            <div className="flex-1 flex flex-col justify-center gap-[clamp(1rem,3vmin,5rem)] mt-[clamp(1rem,3vmin,5rem)] overflow-y-auto">
+                {question.answers.map((option, index) => (
+                    <button
+                        key={index}
+                        className={`btn w-full py-[clamp(0.5rem,3.5vmin,6rem)] text-[clamp(0.9rem,2.5vmin,4rem)] justify-center ${
+                            answered && selected === index ? "btn-info" : "btn"
+                        }`}
+                        onClick={() => handleAnswer(option)}
+                    >
+                        {option}
+                    </button>
+                ))}
+            </div>
 
-                            </div>
-                            <progress
-                                className="progress w-full"
-                                value={100*(questionCount/5)}
-                                max={100}
-                            />
-                            <p className="text-sm text-center opacity-70"> Question {questionCount} of 5</p>
-                        </div>
-
-                    </div>
+            {/* Footer */}
+            <div className="flex flex-col gap-[clamp(0.5rem,1.5vmin,2rem)] mt-[clamp(1rem,2vmin,2rem)]">
+                <div className="flex gap-[clamp(0.5rem,1.5vmin,2rem)]">
+                    <button
+                        className="btn flex-1 py-[clamp(0.5rem,2vmin,4rem)] text-[clamp(0.9rem,2.2vmin,3rem)]"
+                        onClick={() => {
+                            handleStartNew();
+                            router.push(`/`);
+                        }}
+                    >
+                        Start new
+                    </button>
+                    <button
+                        className="btn flex-1 py-[clamp(0.5rem,2vmin,4rem)] text-[clamp(0.9rem,2.2vmin,3rem)]"                        onClick={handleNext}
+                        disabled={!answered}
+                    >
+                        Next
+                    </button>
                 </div>
+
+                <progress
+                    className="progress h-[clamp(0.5rem,1.5vmin,1.5rem)]"
+                    value={(100 * questionCount) / 5}
+                    max={100}
+                />
+                <p className="text-[clamp(0.9rem,2vmin,3rem)] text-center opacity-70">
+                    Question {questionCount} of 5
+                </p>
             </div>
         </div>
-
-);
+    );
 }

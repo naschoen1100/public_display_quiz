@@ -46,20 +46,24 @@ export default function  QuizPage({dataPromise}: QuizPageProps) {
     const question = quizQuestions[current];
     if (!answered){
         return (
-            <>
+            <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-600 to-slate-800 p-4">
+                <div className="w-full max-w-[90vmin] aspect-[4/3]">
                 <QuizCard
                     question={question}
                     questionCount={current + 1}
                     onNext={handleNextAnswer}
                 />
-            </>
+                </div>
+            </div>
         );
     }
     else {
         return (
-            <>
-                <QuizFeedback question={question} selectedIndex={selectedIndex} onNext={handleNextQuestion}/>
-            </>
+            <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-600 to-slate-800 p-4">
+               <div className="w-full max-w-[90vmin] aspect-[4/3]">
+                   <QuizFeedback question={question} selectedIndex={selectedIndex} onNext={handleNextQuestion}/>
+               </div>
+            </div>
         )
     }
 
