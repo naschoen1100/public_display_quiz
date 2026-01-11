@@ -8,14 +8,21 @@ export default async function EntryPage () {
     return (
         <>
             <div className="min-h-screen flex flex-col items-center justify-center p-[4vmin] bg-gradient-to-br from-slate-600 to-slate-800">
-                <h1 className="font-extrabold text-center uppercase text-cyan-700 text-[clamp(3rem,10vmin,12rem)]">
+                <h1 className="font-extrabold text-center uppercase text-cyan-700 text-[clamp(1rem,15vmin,30rem)]">
                     Welcome!
                 </h1>
-                <div className="mt-[2vmin] w-[80vmin] max-w-[90vmin] aspect-square">
-                    <Suspense fallback={<p className="text-center mt-6 text-[clamp(1rem,3vmin,2rem)]"> ...Loading </p>}>
-                        <SpinningWheel dataPromise = {dataPromise}/>
-                    </Suspense>
-                </div>
+                <section className=" mt-[3vmin]  w-full flex justify-center">
+                    <div className="  w-full
+          max-w-[75vmin]
+          lg:max-w-[65vmin]
+          2xl:max-w-[70vmin]
+          aspect-square
+          flex items-center justify-center">
+                        <Suspense fallback={<p className="text-center mt-6 text-[clamp(1rem,3vmin,2rem)]"> ...Loading </p>}>
+                            <SpinningWheel dataPromise = {dataPromise}/>
+                        </Suspense>
+                    </div>
+                </section>
             </div>
         </>
     )
