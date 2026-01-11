@@ -12,12 +12,7 @@ export default async function EntryPage () {
                     Welcome!
                 </h1>
                 <section className=" mt-[3vmin]  w-full flex justify-center">
-                    <div className="  w-full
-          max-w-[75vmin]
-          lg:max-w-[65vmin]
-          2xl:max-w-[70vmin]
-          aspect-square
-          flex items-center justify-center">
+                    <div className="  w-full max-w-[75vmin] lg:max-w-[65vmin] 2xl:max-w-[70vmin] aspect-square flex items-center justify-center">
                         <Suspense fallback={<p className="text-center mt-6 text-[clamp(1rem,3vmin,2rem)]"> ...Loading </p>}>
                             <SpinningWheel dataPromise = {dataPromise}/>
                         </Suspense>

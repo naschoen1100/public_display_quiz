@@ -1,11 +1,15 @@
 "use client";
-import {use, useEffect, useRef, useState} from "react";
+import {use, useState} from "react";
 import {useRouter} from "next/navigation";
 import {getQuizNames} from "@/app/data/getQuizData";
 import {createUserWithScore} from "@/app/data/handleUser";
-import Button from "@/app/components /Button";
 import { SpinWheel } from "react-spin-wheel"
+import {wrapText} from "@/app/util/textWrapper";
 import "react-spin-wheel/dist/index.css"
+
+type SpinWheelItem = {
+    name: string,
+}
 
 type SpinningWheelProps = {
     dataPromise: Promise<Awaited<ReturnType<typeof getQuizNames>>>;
@@ -14,48 +18,38 @@ type SpinningWheelProps = {
 export default function SpinningWheel({dataPromise}: SpinningWheelProps) {
     const data = use(dataPromise);
     const router = useRouter();
-    const [mustSpin, setMustSpin] = useState(false);
-    const [button1Pressed, setButton1Pressed] = useState(false);
-    const [button2Pressed, setButton2Pressed] = useState(false);
-    const [prizeNumber, setPrizeNumber] = useState(0);
-    const handleSpin = () => {
-        const randomIndex = Math.floor(Math.random() * data.length);
-        setPrizeNumber(randomIndex);
-        setMustSpin(true);
-    };
 
-
-    const handleStop = async () => {
-        setMustSpin(false);
-        const selectedQuizID =  data[prizeNumber].id;
+    const handleStop = async (result?: string | SpinWheelItem) => {
+        if (!result) return;
+        const selectedQuizID = labels.findIndex(item =>
+            typeof item === "string"
+                ? item === result
+                : item === (result as SpinWheelItem).name
+        );
         console.log("selectedQuizId: " + selectedQuizID);
         await createUserWithScore(selectedQuizID)
         router.push(`/quiz`);
     };
 
-    const handleOnClickButton1 = () => {
-        if (button2Pressed) {
-            handleSpin();
-        }
-        else { (setButton1Pressed(true));
-        }
-    }
+    const size = Math.min(window.innerWidth, window.innerHeight) * 0.7;
 
-    const handleOnClickButton2 = () => {
-        if (button1Pressed) {
-            handleSpin();
-        }
-        else { (setButton2Pressed(true));
-        }
-    }
-
-    const labels: string[] = data.map(q => q.title);
+    const labels: string[] = data.map(q => wrapText(q.title,2));
 
     return (
     <div className="flex flex-col items-center justify-center p-10">
-        <div className= "w-full max-w-[85vmin] aspect-square flex items-center justify-center">
+        <div className= " w-full h-full flex items-center justify-center">
             <SpinWheel
                 items={labels}
+                size={size}
+                spinFontStyle={{
+                    fontSize: `${size * 0.05}px`,
+                    fontWeight: 700,
+                    fill: "#000",
+                    textShadow: "0 2px 4px rgba(0,0,0,0.3)",
+                }}
+                spinItemStyle={{
+                    padding: size * 0.02,
+                }}
                 itemColors={["#9ae600", "#5ea500"]}
                 borderColor="#000"
                 spinTime={3000}

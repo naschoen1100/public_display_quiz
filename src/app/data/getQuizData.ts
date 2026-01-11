@@ -25,7 +25,6 @@ export async function getQuizNames(){
             questions: false,
         }
     });
-  //  console.log("Quiz Names: ", data);
     return data;
 }
 
