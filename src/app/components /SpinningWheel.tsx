@@ -46,6 +46,13 @@ export default function SpinningWheel({dataPromise}: SpinningWheelProps) {
                     fontWeight: 700,
                     fill: "#000",
                     textShadow: "0 2px 4px rgba(0,0,0,0.3)",
+                    whiteSpace: "pre-line",
+                }}
+                spinButtonStyle={{
+                    width: `${size * 0.1}px`,   // 25% vom Rad
+                    height: `${size * 0.1}px`,  // quadratisch
+                    borderRadius: "50%",               // rund
+                    fontSize: `${size * 0.03}px`,
                 }}
                 spinItemStyle={{
                     padding: size * 0.02,
