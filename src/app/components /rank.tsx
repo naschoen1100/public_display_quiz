@@ -24,7 +24,7 @@ export default function Rank () {
 
     return (
         <div className= "flex flex-col items-center justify-center">
-            <p className="text 4xl md:text-2xl lg:text-2xl font-semibold">Ranking: {stats?.rank}</p>
+            <p className="text font-semibold">Ranking: {stats?.rank}</p>
         </div>
     )
 }
