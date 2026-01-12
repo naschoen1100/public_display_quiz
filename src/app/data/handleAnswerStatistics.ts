@@ -14,7 +14,7 @@ export async function getUserScore () {
     })
     return data
 }
-
+// called in Feedback: gets data only for the current question
 export async function getDataPerQuestion (questionId: number) {
     const user = await getLatestUser();
     const answerCount = await prisma.userAnswer.count({
@@ -34,28 +34,28 @@ export async function getDataPerQuestion (questionId: number) {
             },
         }
     })
-    console.log("correctCount", correctCount)
-    console.log("answerCount", answerCount)
-    console.log("percentage", correctCount/answerCount)
+    // console.log("correctCount", correctCount)
+    // console.log("answerCount", answerCount)
+    // console.log("percentage", correctCount/answerCount)
     return correctCount/answerCount
 }
-
+//called in RankingBar: gets cumulated data for all answered questions
 export async function getDataForRecentQuestions() {
     const user = await getLatestUser();
-    //answeredCount = anzahl der bisher beantworteten Fragen des aktuellen Users
+    //answeredCount = Anzahl der bisher beantworteten Fragen des aktuellen Users
     const answeredCount = await prisma.userAnswer.count({
         where: {
             userId: user.id,
         },
     });
-    // Score des aktuellen Users um den vergleichen zu können
+    // Score des aktuellen Users, um den vergleichen zu können
     const myPoints = await prisma.userAnswer.count({
         where: {
             userId: user.id,
             isCorrect: true,
         },
     });
-    // Anzahl an Player, die das aktuelle Quiz zu ende gespielt haben
+    // Anzahl an Player, die das aktuelle Quiz zu Ende gespielt haben
     const totalPlayers = await prisma.user.count({
         where: {
             quizId: user.quizId,
@@ -80,9 +80,7 @@ export async function getDataForRecentQuestions() {
     const betterPlayers = users.filter(
         (u) => u.answers.length > myPoints
     ).length;
-    //rank = betterPlayers + 1, weil count bei 0 anfängt
-    const rank = totalPlayers - (betterPlayers);
-    console.log("rank", rank);
-    console.log("totalPlayers", totalPlayers);
-    return {totalPlayers, rank};
+    console.log("better players" + betterPlayers);
+    console.log("totalPlayers: ", totalPlayers);
+    return {totalPlayers, betterPlayers};
 }

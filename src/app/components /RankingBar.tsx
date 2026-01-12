@@ -4,7 +4,7 @@ import {getDataForRecentQuestions} from "@/app/data/handleAnswerStatistics";
 
 type QuizStats = {
     totalPlayers: number;
-    rank: number;
+    betterPlayers: number;
 }
 
 export function RankingBar() {
@@ -21,6 +21,8 @@ export function RankingBar() {
         return <p>Loading data</p>
     }
 
+    const percentage =  Math.round(((stats.totalPlayers - stats.betterPlayers) / stats.totalPlayers) * 100);
+
     return (
         <div className="flex flex-col items-center between h-full px-6 text-center">
 
@@ -29,7 +31,7 @@ export function RankingBar() {
                 <div className="text-[clamp(1rem,2.5vmin,4rem)] font-extrabold text-green-600">
                     Top {
                     stats
-                             ? Math.round(((stats.totalPlayers - stats.rank) / stats.totalPlayers) * 100)
+                             ? Math.round(((stats.totalPlayers - stats.betterPlayers) / stats.totalPlayers) * 100)
                              : 0} %
                 </div>
             </div>
@@ -40,21 +42,21 @@ export function RankingBar() {
                 <div
                     className="absolute bottom-0 w-full bg-green-500 transition-all duration-700"
                     style={{ height: `${ stats
-                            ? Math.round(((stats.totalPlayers - stats.rank) / stats.totalPlayers) * 100)
+                            ? Math.round(((stats.totalPlayers - stats.betterPlayers) / stats.totalPlayers) * 100)
                             : 0}%` }}
                 />
                 {/* Marker */}
                 <div
                     className="absolute left-1/2 -translate-x-1/2 w-10 h-1 bg-black"
                     style={{ bottom: `${stats
-                            ? Math.round(((stats.totalPlayers - stats.rank) / stats.totalPlayers) * 100)
+                            ? Math.round(((stats.totalPlayers - stats.betterPlayers) / stats.totalPlayers) * 100)
                             : 0}%` }}
                 />
             </div>
 
             {/* Rank Info */}
             <p className="text-base text-white text-[clamp(1rem,2vmin,4rem)]">
-                Platz <span className="font-bold">{stats?.rank}</span> von{" "}
+                place <span className="font-bold">{stats?.betterPlayers + 1}</span> of{" "}
                 <span className="font-semibold">{stats?.totalPlayers}</span>
             </p>
         </div>
