@@ -66,13 +66,15 @@ export async function getDataForRecentQuestions() {
     const users = await prisma.user.findMany({
         where: {
             quizId: user.quizId,
+            completedAt : {not: null},
         },
         select: {
             id: true,
             answers: {
                 orderBy: { createdAt: "asc" },
                 take: answeredCount,
-                where: { isCorrect: true },
+                where: {
+                    isCorrect: true},
             },
         },
     });

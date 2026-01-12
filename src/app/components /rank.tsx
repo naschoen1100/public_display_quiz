@@ -21,10 +21,10 @@ export default function Rank () {
     if(stats == null || isPending) {
         return <p>Loading data</p>
     }
-
+//betterPlayers+1 because it stars with 0, and totalPlayers-1 because the just finished player already counts as part of the toatl players
     return (
         <div className= "flex flex-col items-center justify-center">
-            <p className="text font-semibold">You've finished on place  {stats?.betterPlayers + 1} of{" "} {stats?.totalPlayers} players </p>
+            <p className="text font-semibold">You've finished on place  {stats?.betterPlayers + 1} of{" "} {stats?.totalPlayers-1} players </p>
         </div>
     )
 }
