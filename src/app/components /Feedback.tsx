@@ -8,7 +8,7 @@ type FeedbackProps = {
 }
 
 export default function Feedback (props: FeedbackProps) {
-    const [stats, setStats] = useState<number> (0);
+    const [stats, setStats] = useState<number | null> (null);
     const [isPending, startTransition] = useTransition();
 
     useEffect(() => {
@@ -17,7 +17,7 @@ export default function Feedback (props: FeedbackProps) {
         })
     }, [props.questionId]);
 
-    if(!stats && !isPending) {
+    if(stats == null || isPending) {
         return <p>Loading data</p>
     }
 

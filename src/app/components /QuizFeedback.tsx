@@ -2,7 +2,7 @@
 
 import {UIQuestion} from "@/app/types/types";
 import Feedback from "@/app/components /Feedback";
-import LeaderBoard from "@/app/components /LeaderBoard";
+import {RankingBar} from "@/app/components /RankingBar";
 
 type FeedbackProps = {
     question: UIQuestion;
@@ -63,7 +63,8 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
 
                     {/* Leaderboard */}
                     <div className="w-[clamp(12rem,18vmin,25rem)] border border-white-500 rounded-xl shadow-lg p-4 flex flex-col">
-                        <h3 className="text-center font-bold text-[clamp(1rem,2vmin,2rem)] mb-2">Leaderboard</h3>
+                        <h3 className="text-center font-bold text-[clamp(1rem,2vmin,3rem)] mb-2">Leaderboard</h3>
+                        <RankingBar/>
                     </div>
 
                 </div>
