@@ -1,8 +1,6 @@
 'use client'
 
 import {UIQuestion} from "@/app/types/types";
-import Feedback from "@/app/components /Feedback";
-import {RankingBar} from "@/app/components /RankingBar";
 
 type FeedbackProps = {
     question: UIQuestion;
@@ -56,17 +54,7 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
                                 );
                             })}
                         </div>
-                        <div className= "mt-[clamp(0.5rem,1.5vmin,3rem)] p-[clamp(0.5rem,1vmin,1rem)] text-[clamp(1rem,2.5vmin,4.5rem)] text-white-500 shadow-md">
-                            <Feedback questionId={question.id}/>
-                        </div>
                     </div>
-
-                    {/* Leaderboard */}
-                    <div className="w-[clamp(12rem,18vmin,25rem)] border border-white-500 rounded-xl shadow-lg p-4 flex flex-col">
-                        <h3 className="text-center font-bold text-[clamp(1rem,2vmin,3rem)] mb-2">Leaderboard</h3>
-                        <RankingBar/>
-                    </div>
-
                 </div>
 
                 {/* Footer */}
