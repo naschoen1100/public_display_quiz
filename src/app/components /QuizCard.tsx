@@ -36,7 +36,7 @@ export default function QuizCard({question, questionCount, onNext}: QuizCardProp
 
     return (
         <div
-            className="card w-full max-w-[80vmin] aspect-[4/3] bg-gradient-to-br from-cyan-700 to-cyan-900 shadow-2xl rounded-3xl p-[clamp(1rem,2vmin,3rem)] flex flex-col justify-between"
+            className="card w-full max-w-[80vmin] aspect-[4/4] bg-gradient-to-br from-cyan-700 to-cyan-900 shadow-2xl rounded-3xl p-[clamp(1rem,2vmin,3rem)] flex flex-col justify-between"
         >
             {/* Header */}
             <h2 className="card-title text-center text-[clamp(1.5rem,3vmin,4rem)] font-bold text-white justify-center">
@@ -75,7 +75,7 @@ export default function QuizCard({question, questionCount, onNext}: QuizCardProp
                         Start new
                     </button>
                     <button
-                        className="btn flex-1 py-[clamp(0.5rem,1.5vmin,3rem)] text-[clamp(0.9rem,2.2vmin,3rem)] bg-gradient-to-r from-green-500 to-teal-500 hover:from-teal-500 hover:to-green-500 text-white rounded-xl shadow-lg transition-all"
+                        className="btn flex-1 py-[clamp(0.5rem,2vmin,3rem)] text-[clamp(0.9rem,2.2vmin,3rem)] bg-gradient-to-r from-green-500 to-teal-500 hover:from-teal-500 hover:to-green-500 text-white rounded-xl shadow-lg transition-all"
                         onClick={handleNext}
                         disabled={!answered}
                     >
