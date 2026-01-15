@@ -4,6 +4,7 @@ import {UIQuestion} from "@/app/types/types";
 import Feedback from "@/app/components /Feedback";
 import {useState} from "react";
 import RankingModal from "@/app/components /RankingModal";
+import Score from "@/app/components /Score";
 
 type FeedbackProps = {
     question: UIQuestion;
@@ -20,7 +21,10 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
         return (
             <>
             <div className="card w-full max-w-[80vmin] aspect-[4/4] bg-gradient-to-br from-cyan-700 to-cyan-900 shadow-2xl rounded-3xl p-[clamp(1rem,2vmin,3rem)] flex flex-col justify-between">
-
+                <div className="absolute top-[clamp(0.8rem,2vmin,2rem)] right-[clamp(0.8rem,0.5vmin,0.7rem)] bg-cyan-500 text-white font-bold
+                                px-[clamp(0.8rem,2.5vmin,4.5rem)] py-[clamp(0.4rem,2.3vmin,4rem)] rounded-full text-[clamp(1rem,2.3vmin,4rem)] shadow-lg">
+                    <Score/>
+                </div>
                 {/* Header: Feedback */}
                 <div
                     className={`text-center font-bold py-[clamp(0.8rem,2vmin,2rem)] rounded-xl text-[clamp(1.5rem,3vmin,4rem)]
@@ -30,7 +34,7 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
                 </div>
 
                 {/* Body: Question + Answers + Feedback */}
-                <div className="flex flex-1 gap-[clamp(1rem,2vmin,2rem)] mt-[clamp(1rem,2vmin,2rem)] overflow-y-auto">
+                <div className="flex flex-1 gap-[clamp(1rem,2.5vmin,3rem)] mt-[clamp(1rem,2vmin,2rem)] overflow-y-auto">
 
                     {/* Question + Answers */}
                     <div className="flex-1 flex flex-col gap-[clamp(0.5rem,1vmin,1.5rem)]">

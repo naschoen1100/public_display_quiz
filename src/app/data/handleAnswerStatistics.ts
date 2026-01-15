@@ -14,6 +14,26 @@ export async function getUserScore () {
     })
     return data
 }
+
+export async function getUserScoreNumber () {
+    const user = await getLatestUser()
+    const data = await prisma.user.findFirst({
+        where: {
+            id: user.id
+        },
+        include: {
+            score: true,
+        }
+    })
+    if (!data) {
+        throw new Error("no score found");
+    }
+    console.log(data)
+    const score = Number(data.score)
+    console.log("score: " + score)
+    return score
+}
+
 // called in Feedback: gets data only for the current question
 export async function getDataPerQuestion (questionId: number) {
     const user = await getLatestUser();
