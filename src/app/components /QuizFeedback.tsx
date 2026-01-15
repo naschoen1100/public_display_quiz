@@ -2,7 +2,8 @@
 
 import {UIQuestion} from "@/app/types/types";
 import Feedback from "@/app/components /Feedback";
-import {RankingBar} from "@/app/components /RankingBar";
+import {useState} from "react";
+import RankingModal from "@/app/components /RankingModal";
 
 type FeedbackProps = {
     question: UIQuestion;
@@ -12,21 +13,23 @@ type FeedbackProps = {
 
 export default function QuizFeedback({question, selectedIndex, onNext}: FeedbackProps) {
     const isCorrect = selectedIndex === question.correctAnswer;
+    const [open, setOpen] = useState(false);
     const handleNext = async (): Promise<void> => {
         onNext()
     }
         return (
-            <div className="card w-full max-w-[80vmin] aspect-[4/3] bg-gradient-to-br from-cyan-700 to-cyan-900 shadow-2xl rounded-3xl p-[clamp(1rem,2vmin,3rem)] flex flex-col justify-between">
+            <>
+            <div className="card w-full max-w-[80vmin] aspect-[4/4] bg-gradient-to-br from-cyan-700 to-cyan-900 shadow-2xl rounded-3xl p-[clamp(1rem,2vmin,3rem)] flex flex-col justify-between">
 
                 {/* Header: Feedback */}
                 <div
                     className={`text-center font-bold py-[clamp(0.8rem,2vmin,2rem)] rounded-xl text-[clamp(1.5rem,3vmin,4rem)]
-        ${isCorrect ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"} shadow-md`}
+                    ${isCorrect ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"} shadow-md`}
                 >
                     {isCorrect ? "Right Answer" : "Wrong Answer"}
                 </div>
 
-                {/* Body: Question + Answers + Feedback + Leaderboard */}
+                {/* Body: Question + Answers + Feedback */}
                 <div className="flex flex-1 gap-[clamp(1rem,2vmin,2rem)] mt-[clamp(1rem,2vmin,2rem)] overflow-y-auto">
 
                     {/* Question + Answers */}
@@ -45,11 +48,11 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
                                     <div
                                         key={index}
                                         className={`px-[clamp(0.5rem,1vmin,1rem)] py-[clamp(0.5rem,1vmin,1.5rem)]
-                  rounded-xl text-[clamp(1.2rem,2vmin,3rem)] font-bold border
-                  transition-all duration-200 transform hover:scale-105
-                  ${isCorrectAnswer ? "border-green-400 bg-green-600 text-white" : ""}
-                  ${isSelected && !isCorrectAnswer ? "border-red-400 bg-red-500 text-white" : ""}
-                  ${!isCorrectAnswer && !isSelected ? "border-slate-300 bg-slate-600 text-white" : ""}`}
+                                                  rounded-xl text-[clamp(1.2rem,2vmin,3rem)] font-bold border
+                                                  transition-all duration-200 transform hover:scale-105
+                                                  ${isCorrectAnswer ? "border-green-400 bg-green-600 text-white" : ""}
+                                                  ${isSelected && !isCorrectAnswer ? "border-red-400 bg-red-500 text-white" : ""}
+                                                  ${!isCorrectAnswer && !isSelected ? "border-slate-300 bg-slate-600 text-white" : ""}`}
                                     >
                                         {answer}
                                     </div>
@@ -60,24 +63,19 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
                             <Feedback questionId={question.id}/>
                         </div>
                     </div>
-
-                    {/* Leaderboard */}
-                    <div className="w-[clamp(12rem,18vmin,25rem)] border border-white-500 rounded-xl shadow-lg p-4 flex flex-col">
-                        <h3 className="text-center font-bold text-[clamp(1rem,2vmin,3rem)] mb-2">Leaderboard</h3>
-                        <RankingBar/>
-                    </div>
-
                 </div>
 
                 {/* Footer */}
                 <div className="flex flex-col gap-[clamp(0.5rem,1vmin,1.5rem)] mt-[clamp(1rem,2vmin,2rem)]">
                     <button
                         className="btn w-full py-[clamp(0.5rem,2.5vmin,3rem)] text-[clamp(1rem,2vmin,3rem)] bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white rounded-xl shadow-lg transition-all"
-                        onClick={handleNext}
+                        onClick= {() => setOpen(true)}
                     >
                         Next Question
                     </button>
                 </div>
             </div>
+                <RankingModal open={open} onClose = {() => setOpen(false)} onAfterClose={handleNext}/>
+            </>
         );
     }
