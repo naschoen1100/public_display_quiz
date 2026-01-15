@@ -1,9 +1,9 @@
 'use client'
-import {use, useEffect, useState} from "react";
+import React, {use, useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
 import {getQuizQestions} from "@/app/data/getQuizData";
 import QuizCard from "@/app/components /QuizCard";
-import {setUserAnswer, setUserQuizFinished} from "@/app/data/handleUser";
+import {deleteUser, setUserAnswer, setUserQuizFinished} from "@/app/data/handleUser";
 import QuizFeedback from "@/app/components /QuizFeedback";
 import {useInactivityTimeout} from "@/app/util/useInactivityTimeout";
 import {mapDBQuestionToQuizQuestion} from "@/app/util/mapDBQuestionToQuiz";
@@ -21,6 +21,9 @@ export default function  QuizPage({dataPromise}: QuizPageProps) {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const quizQuestions = data.map(mapDBQuestionToQuizQuestion);
     const isFinished = current >= data.length
+    const hasQuestions = data.length > 0;
+
+    const question = quizQuestions[current];
 
     const handleNextAnswer = (isCorrect: boolean, selectedIndex: number) => {
         setAnswered(true);
@@ -33,17 +36,40 @@ export default function  QuizPage({dataPromise}: QuizPageProps) {
         setAnswered(false)
     }
 
+    const handleStartNew = async () => {
+        deleteUser()
+        setAnswered(false)
+    }
+
     useEffect(() => {
         if (isFinished) {
+            console.log("data and is finished: " + data)
             router.push("/quiz/result");
         }
     }, [isFinished, router]);
+
+    if (!hasQuestions) {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <p>Keine Fragen gefunden (quizId falsch oder DB leer).</p>
+                <button
+                    className="btn flex-1 py-[clamp(0.5rem,2vmin,3rem)] text-[clamp(0.9rem,2.2vmin,3rem)] bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white rounded-xl shadow-lg transition-all"
+                    onClick={() => {
+                        handleStartNew();
+                        router.push(`/`);
+                    }}
+                >
+                    Start new
+                </button>
+            </div>
+        );
+    }
 
     if(isFinished) {
         setUserQuizFinished()
         return <p>Quiz beendet</p>
     }
-    const question = quizQuestions[current];
+
     if (!answered){
         return (
             <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-600 to-slate-800 p-4">

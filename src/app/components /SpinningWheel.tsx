@@ -21,11 +21,11 @@ export default function SpinningWheel({dataPromise}: SpinningWheelProps) {
 
     const handleStop = async (result?: string | SpinWheelItem) => {
         if (!result) return;
-        const selectedQuizID = labels.findIndex(item =>
+        const selectedQuizID = (labels.findIndex(item =>
             typeof item === "string"
                 ? item === result
                 : item === (result as SpinWheelItem).name
-        );
+        ))+1;
         console.log("selectedQuizId: " + selectedQuizID);
         await createUserWithScore(selectedQuizID)
         router.push(`/quiz`);
