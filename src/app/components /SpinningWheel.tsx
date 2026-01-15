@@ -54,6 +54,12 @@ export default function SpinningWheel({dataPromise}: SpinningWheelProps) {
                     borderRadius: "50%",               // rund
                     fontSize: `${size * 0.03}px`,
                 }}
+                resetButtonStyle={{
+                    width: `${size * 0.1}px`,   // 25% vom Rad
+                    height: `${size * 0.1}px`,  // quadratisch
+                    borderRadius: "50%",               // rund
+                    fontSize: `${size * 0.02}px`,
+                }}
                 spinItemStyle={{
                     padding: size * 0.02,
                 }}
