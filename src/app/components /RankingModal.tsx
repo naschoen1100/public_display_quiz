@@ -57,10 +57,10 @@ export default function RankingModal({open, onClose, onAfterClose, autoCloseMs =
     return (
         <dialog className="modal modal-open">
             {/* Overlay + Blur */}
-            <div className="fixed inset-0 bg-black/20 backdrop-blur-sm" />
+            <div className="fixed inset-0 bg-black/20 backdrop-blur-sm gap-[clamp(1rem,4vmin,7rem)]" />
 
             {/* Card */}
-            <div className="relative w-[min(120vw,80rem)] rounded-2xl bg-white shadow-[0_20px_60px_-20px_rgba(0,0,0,0.25)] border border-slate-200 px-8 py-7 text-slate-800">
+            <div className="relative w-[min(120vw,80rem)] rounded-2xl bg-slate-100 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.25)] border border-cyan-700 px-8 py-7 text-slate-800 gap-[clamp(1rem,2vmin,2rem)]">
 
                 {/* Title */}
                 <h3 className="text-center font-semibold text-[clamp(1.5rem,3vmin,6rem)]">
@@ -68,20 +68,20 @@ export default function RankingModal({open, onClose, onAfterClose, autoCloseMs =
                 </h3>
 
                 {/* Content */}
-                <div className="mt-6 flex flex-col items-center">
+                <div className="mt-6 flex flex-col items-center gap-[clamp(1rem,2vmin,2rem)]">
                     {loading ? (
                         <p className="text-slate-500">Loading data…</p>
                     ) : (
                         <>
                             {/* Top Percentage */}
                             <div className="mb-5 text-center">
-                                <div className="text-[clamp(1.3rem,4vmin,3rem)] font-extrabold text-cyan-600">
+                                <div className="text-[clamp(1.3rem,4vmin,5rem)] font-extrabold text-cyan-600">
                                     You belong to the top {topPercent}%
                                 </div>
                             </div>
 
                             {/* Vertical Bar */}
-                            <div className="relative w-7 h-[clamp(9rem,28vmin,20rem)] bg-slate-100 rounded-full overflow-hidden">
+                            <div className="relative w-10 h-[clamp(9rem,28vmin,20rem)] bg-slate-100 border-4 border-cyan-700 rounded-full overflow-hidden">
                                 <div
                                     className="absolute bottom-0 w-full bg-cyan-500 transition-all duration-700"
                                     style={{ height: `${topPercent}%` }}
