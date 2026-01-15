@@ -1,7 +1,7 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react";
-import { getDataForRecentQuestions } from "@/app/data/handleAnswerStatistics";
+import {useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react";
+import {getDataForRecentQuestions } from "@/app/data/handleAnswerStatistics";
 
 type QuizStats = {
     totalPlayers: number;
@@ -56,64 +56,91 @@ export default function RankingModal({open, onClose, onAfterClose, autoCloseMs =
 
     return (
         <dialog className="modal modal-open">
-            {/* Overlay + Blur */}
-            <div className="fixed inset-0 bg-black/20 backdrop-blur-sm gap-[clamp(1rem,4vmin,7rem)]" />
+            {/* Overlay */}
+            <div className="fixed inset-0 bg-black/35 backdrop-blur-md" />
 
             {/* Card */}
-            <div className="relative w-[min(120vw,80rem)] rounded-2xl bg-slate-100 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.25)] border border-cyan-700 px-8 py-7 text-slate-800 gap-[clamp(1rem,2vmin,2rem)]">
+            <div
+                className="relative mt-[8vh] w-[min(92vw,80rem)] rounded-[2.5rem]
+               border border-white/25 bg-white/80
+               shadow-[0_40px_120px_-50px_rgba(0,0,0,0.45)]
+               px-[clamp(1.5rem,4vmin,4rem)]
+               py-[clamp(1.25rem,3.5vmin,3.5rem)]
+               text-slate-900"
+            >
+                {/* Header */}
+                <div className="flex flex-col items-center gap-[clamp(0.75rem,1.8vmin,1.5rem)]">
+                    <div className="badge badge-lg border border-cyan-700 bg-cyan-600 px-10 py-13 text-white font-semibold
+                      text-[clamp(0.9rem,5vmin,5rem)]">
+                        Ranking
+                    </div>
 
-                {/* Title */}
-                <h3 className="text-center font-semibold text-[clamp(1.5rem,3vmin,6rem)]">
-                    Here&apos;s how you performed compared to others
-                </h3>
+                    <h3 className="text-center font-extrabold tracking-tight
+                     text-[clamp(2rem,5.3vmin,6rem)] leading-[1.05]">
+                        Here’s how you performed
+                    </h3>
+
+                    <p className="text-center text-slate-600
+                    text-[clamp(1.1rem,3vmin,2.5rem)]">
+                        You belong to the
+                    </p>
+                </div>
 
                 {/* Content */}
-                <div className="mt-6 flex flex-col items-center gap-[clamp(1rem,2vmin,2rem)]">
-                    {loading ? (
-                        <p className="text-slate-500">Loading data…</p>
-                    ) : (
-                        <>
-                            {/* Top Percentage */}
-                            <div className="mb-5 text-center">
-                                <div className="text-[clamp(1.3rem,4vmin,5rem)] font-extrabold text-cyan-600">
-                                    You belong to the top {topPercent}%
-                                </div>
-                            </div>
+                <div className="mt-[clamp(1.25rem,3vmin,2.75rem)]
+                    flex flex-col items-center
+                    gap-[clamp(1.25rem,3vmin,3rem)]">
 
-                            {/* Vertical Bar */}
-                            <div className="relative w-10 h-[clamp(9rem,28vmin,20rem)] bg-slate-100 border-4 border-cyan-700 rounded-full overflow-hidden">
-                                <div
-                                    className="absolute bottom-0 w-full bg-cyan-500 transition-all duration-700"
-                                    style={{ height: `${topPercent}%` }}
-                                />
-                                <div
-                                    className="absolute left-1/2 -translate-x-1/2 w-10 h-[3px]  bg-slate-800/70 rounded"
-                                    style={{ bottom: `${topPercent}%` }}
-                                />
-                            </div>
+                    {/* Big stat */}
+                    <div className="text-center">
+                        <div className="text-[clamp(3rem,8vmin,8rem)]
+                        font-black text-cyan-700 leading-none">
+                            Top {topPercent}%
+                        </div>
+                        <div className="mt-[clamp(0.4rem,3vmin,2rem)]
+                        text-slate-600 text-[clamp(1.1rem,3vmin,2.5rem)]">
+                            {topPercent >= 90 ? "Outstanding!" : topPercent >= 50 ? "Nice work!" : "Keep going!"}
+                        </div>
+                    </div>
 
-                            {/* Subtitle */}
-                            <p className="mt-2 text-center font-semibold text-slate-800 text-[clamp(0.9rem,2.5vmin,4.5rem)]">
-                                {topPercent>50 ? "Good Job! Keep doing the good work 💪" : "Try harder next time"}
-                            </p>
+                    {/* Progress */}
+                    <div className="w-full max-w-[min(90vw,55rem)]">
+                        <div className="h-[clamp(0.75rem,1.6vmin,1.25rem)]
+                        w-full rounded-full bg-slate-200 overflow-hidden">
+                            <div
+                                className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-sky-800 transition-all duration-700"
+                                style={{ width: `${topPercent}%` }}
+                            />
+                        </div>
 
-                            {/* Rank Info */}
-                            <p className="mt-5 text-slate-800 text-[clamp(0.95rem,2.5vmin,4rem)]">
-                                Place{" "}
-                                <span className="font-bold text-slate-800">
-                                         {(stats?.betterPlayers ?? 0) + 1}
-                                 </span>{" "}
-                                     of{" "}
-                                <span className="font-semibold text-slate-800">
-                                    {stats?.totalPlayers ?? 0}
-                                 </span>
-                            </p>
-                        </>
-                    )}
+                        <div className="mt-[clamp(0.5rem,1vmin,0.9rem)]
+                        flex justify-between text-slate-500
+                        text-[clamp(0.9rem,3vmin,2rem)]">
+                            <span>0%</span>
+                            <span>100%</span>
+                        </div>
+                    </div>
+
+                    {/* Rank */}
+                    <div className="rounded-[1.5rem] bg-white/60 border border-white/35
+                      px-[clamp(1rem,2.2vmin,2rem)]
+                      py-[clamp(0.9rem,2vmin,1.6rem)]
+                      text-center w-full max-w-[min(90vw,55rem)]">
+                        <p className="text-slate-700 text-[clamp(1.3rem,2vmin,3rem)]">
+                            Place{" "}
+                            <span className="font-extrabold text-slate-900">
+            {(stats?.betterPlayers ?? 0) + 1}
+          </span>{" "}
+                            of{" "}
+                            <span className="font-bold text-slate-900">
+            {stats?.totalPlayers ?? 0}
+          </span>
+                        </p>
+                    </div>
                 </div>
             </div>
 
-            {/* Backdrop bleibt klickbar */}
+            {/* Backdrop click closes */}
             <form method="dialog" className="modal-backdrop">
                 <button type="button" onClick={closeModal} />
             </form>

@@ -34,7 +34,7 @@ export default function ResultPage({dataPromise}: ResultPageProps) {
 
                 {/* Button */}
                 <button
-                    className="btn py-[clamp(0.6rem,1.5vmin,2.5rem)] text-[clamp(1rem,1.8vmin,4rem)] bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white rounded-xl shadow-lg transition-all mt-[clamp(0.5rem,1vmin,2rem)]"
+                    className="btn py-[clamp(0.6rem,1.5vmin,2.5rem)] text-[clamp(1rem,1.8vmin,4rem)] bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-sky-500 hover:to-cyan-500 text-white rounded-xl shadow-lg transition-all mt-[clamp(0.5rem,1vmin,2rem)]"
                     onClick={() => router.push(`/`)}
                 >
                     Start Again

@@ -73,7 +73,7 @@ export default function  QuizPage({dataPromise}: QuizPageProps) {
     if (!answered){
         return (
             <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-600 to-slate-800 p-4">
-                <div className="w-full max-w-[90vmin] aspect-[4/3]">
+                <div className="w-full max-w-[90vmin] ]">
                 <QuizCard
                     question={question}
                     questionCount={current + 1}

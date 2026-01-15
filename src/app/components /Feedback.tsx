@@ -22,7 +22,7 @@ export default function Feedback (props: FeedbackProps) {
     }
 
     return (
-        <div className="flex w-full h-full items-center justify-center bg-cyan-700">
+        <div className="flex w-full h-full items-center justify-center">
             <p className="font-bold">
                 {Math.round(stats * 100)}% of the groups before you answered this question correctly
             </p>
