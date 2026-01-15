@@ -49,7 +49,7 @@ export default function QuizCard({question, questionCount, onNext}: QuizCardProp
                 {question.answers.map((option, index) => (
                     <button
                         key={index}
-                        className={`px-[clamp(0.5rem,1vmin,1.5rem)] py-[clamp(0.8rem,2vmin,3rem)] rounded-xl text-[clamp(1rem,2.2vmin,3rem)] font-bold border transition-all duration-200 transform hover:scale-105
+                        className={`px-[clamp(0.5rem,1vmin,1.5rem)] py-[clamp(0.8rem,2vmin,3rem)] rounded-xl text-[clamp(1rem,2.2vmin,3rem)] font-bold transition-all duration-200 transform hover:scale-105
             ${
                             answered && selected === index
                                 ? "bg-cyan-500 text-white border-cyan-700"
