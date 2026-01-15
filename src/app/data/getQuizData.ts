@@ -42,8 +42,8 @@ export async function getQuizQestions () {
             quizId: true,
         }
     })
-    if (!quizIdObject) {
-        throw new Error(`User with id ${userId} not found`);
+    if (!quizIdObject?.quizId) {
+        throw new Error(`No quizId set for user ${userId}`);
     }
 
     const data = await prisma.question.findMany({

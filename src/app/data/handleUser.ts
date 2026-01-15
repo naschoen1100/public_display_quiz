@@ -3,7 +3,7 @@
 import prisma from "../../../prisma/prisma";
 
 export async function createUserWithScore(quizId: number) {
-    await prisma.user.create({
+    return prisma.user.create({
         data: {
             quizId: quizId,
             score: {
