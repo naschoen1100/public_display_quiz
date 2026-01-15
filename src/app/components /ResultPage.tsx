@@ -24,7 +24,7 @@ export default function ResultPage({dataPromise}: ResultPageProps) {
 
                 {/* Score */}
                 <p className="text-[clamp(1.5rem,3vmin,4rem)] font-semibold text-center text-white">
-                    Your score: {points} / 5
+                    Your score: {points} / 3
                 </p>
 
                 {/* Ranking / Leaderboard */}
@@ -34,7 +34,7 @@ export default function ResultPage({dataPromise}: ResultPageProps) {
 
                 {/* Button */}
                 <button
-                    className="btn py-[clamp(0.6rem,1.5vmin,2.5rem)] text-[clamp(1rem,1.8vmin,2rem)] bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white rounded-xl shadow-lg transition-all mt-[clamp(0.5rem,1vmin,2rem)]"
+                    className="btn py-[clamp(0.6rem,1.5vmin,2.5rem)] text-[clamp(1rem,1.8vmin,4rem)] bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white rounded-xl shadow-lg transition-all mt-[clamp(0.5rem,1vmin,2rem)]"
                     onClick={() => router.push(`/`)}
                 >
                     Start Again

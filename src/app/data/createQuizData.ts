@@ -1,5 +1,5 @@
 import prisma from "../../../prisma/prisma";
-import quizzes from "./quiz.json"
+import quizzes from "./quizData_passwords.json"
 import {ImportQuizFromJSON} from "@/app/types/types";
 export async function importQuizzes() {
     const importQuizzes = quizzes as ImportQuizFromJSON[];
