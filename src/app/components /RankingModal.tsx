@@ -56,45 +56,68 @@ export default function RankingModal({open, onClose, onAfterClose, autoCloseMs =
 
     return (
         <dialog className="modal modal-open">
-            <div className="modal-box max-w-[min(90vw,42rem)] bg-neutral text-neutral-content">
-                <h3 className="font-bold text-[clamp(1.2rem,3vmin,2.2rem)] text-center mb-4">
-                    Your Ranking:
+            {/* Overlay + Blur */}
+            <div className="fixed inset-0 bg-black/20 backdrop-blur-sm" />
+
+            {/* Card */}
+            <div className="relative w-[min(120vw,80rem)] rounded-2xl bg-white shadow-[0_20px_60px_-20px_rgba(0,0,0,0.25)] border border-slate-200 px-8 py-7 text-slate-800">
+
+                {/* Title */}
+                <h3 className="text-center font-semibold text-[clamp(1.5rem,3vmin,6rem)]">
+                    Here&apos;s how you performed compared to others
                 </h3>
 
-                {loading ? (
-                    <p>Loading data…</p>
-                ) : (
-                    <div className="flex flex-col items-center h-full px-6 text-center">
-                        {/* Top Percentage */}
-                        <div className="mb-6">
-                            <div className="text-[clamp(1rem,2.5vmin,4rem)] font-extrabold text-green-600">
-                                Top {topPercent} %
+                {/* Content */}
+                <div className="mt-6 flex flex-col items-center">
+                    {loading ? (
+                        <p className="text-slate-500">Loading data…</p>
+                    ) : (
+                        <>
+                            {/* Top Percentage */}
+                            <div className="mb-5 text-center">
+                                <div className="text-[clamp(1.3rem,4vmin,3rem)] font-extrabold text-cyan-600">
+                                    You belong to the top {topPercent}%
+                                </div>
                             </div>
-                        </div>
 
-                        {/* Vertical Bar */}
-                        <div className="relative flex-1 w-6 bg-gray-200 rounded-full overflow-hidden mb-6">
-                            <div
-                                className="absolute bottom-0 w-full bg-green-500 transition-all duration-700"
-                                style={{ height: `${topPercent}%` }}
-                            />
-                            <div
-                                className="absolute left-1/2 -translate-x-1/2 w-10 h-1 bg-black"
-                                style={{ bottom: `${topPercent}%` }}
-                            />
-                        </div>
+                            {/* Vertical Bar */}
+                            <div className="relative w-7 h-[clamp(9rem,28vmin,20rem)] bg-slate-100 rounded-full overflow-hidden">
+                                <div
+                                    className="absolute bottom-0 w-full bg-cyan-500 transition-all duration-700"
+                                    style={{ height: `${topPercent}%` }}
+                                />
+                                <div
+                                    className="absolute left-1/2 -translate-x-1/2 w-10 h-[3px]  bg-slate-800/70 rounded"
+                                    style={{ bottom: `${topPercent}%` }}
+                                />
+                            </div>
 
-                        {/* Rank Info */}
-                        <p className="text-base text-white text-[clamp(1rem,2vmin,4rem)]">
-                            place <span className="font-bold">{(stats?.betterPlayers ?? 0) + 1}</span> of{" "}
-                            <span className="font-semibold">{stats?.totalPlayers ?? 0}</span>
-                        </p>
-                    </div>
-                )}
+                            {/* Subtitle */}
+                            <p className="mt-2 text-center font-semibold text-slate-800 text-[clamp(0.9rem,2.5vmin,4.5rem)]">
+                                {topPercent>50 ? "Good Job! Keep doing the good work 💪" : "Try harder next time"}
+                            </p>
+
+                            {/* Rank Info */}
+                            <p className="mt-5 text-slate-800 text-[clamp(0.95rem,2.5vmin,4rem)]">
+                                Place{" "}
+                                <span className="font-bold text-slate-800">
+                                         {(stats?.betterPlayers ?? 0) + 1}
+                                 </span>{" "}
+                                     of{" "}
+                                <span className="font-semibold text-slate-800">
+                                    {stats?.totalPlayers ?? 0}
+                                 </span>
+                            </p>
+                        </>
+                    )}
+                </div>
             </div>
+
+            {/* Backdrop bleibt klickbar */}
             <form method="dialog" className="modal-backdrop">
-                <button type="button" onClick={closeModal}>close</button>
+                <button type="button" onClick={closeModal} />
             </form>
         </dialog>
+
     );
 }

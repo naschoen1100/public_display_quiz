@@ -47,8 +47,7 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
                                 return (
                                     <div
                                         key={index}
-                                        className={`px-[clamp(0.5rem,1vmin,1rem)] py-[clamp(0.5rem,1vmin,1.5rem)]
-                                                  rounded-xl text-[clamp(1.2rem,2vmin,3rem)] font-bold border
+                                        className={`px-[clamp(0.5rem,1vmin,1rem)] py-[clamp(0.5rem,1vmin,1.5rem)] rounded-xl text-[clamp(1.2rem,2vmin,3rem)] font-bold border
                                                   transition-all duration-200 transform hover:scale-105
                                                   ${isCorrectAnswer ? "border-green-400 bg-green-600 text-white" : ""}
                                                   ${isSelected && !isCorrectAnswer ? "border-red-400 bg-red-500 text-white" : ""}
@@ -59,7 +58,7 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
                                 );
                             })}
                         </div>
-                        <div className= "mt-[clamp(0.5rem,1.5vmin,3rem)] p-[clamp(0.5rem,1vmin,1rem)] text-[clamp(1rem,2.5vmin,4.5rem)] text-white-500 shadow-md">
+                        <div className= "mt-[clamp(0.5rem,1.5vmin,3rem)] p-[clamp(0.5rem,1vmin,1rem)] text-[clamp(1rem,3.5vmin,4.5rem)] text-white-500 shadow-md text-center">
                             <Feedback questionId={question.id}/>
                         </div>
                     </div>
