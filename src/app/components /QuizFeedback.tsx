@@ -14,7 +14,7 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
         onNext()
     }
         return (
-            <div className="card w-full max-w-[80vmin] aspect-[4/3] bg-gradient-to-br from-cyan-700 to-cyan-900 shadow-2xl rounded-3xl p-[clamp(1rem,2vmin,3rem)] flex flex-col justify-between">
+            <div className="card w-full max-w-[80vmin] aspect-[4/4] bg-gradient-to-br from-cyan-700 to-cyan-900 shadow-2xl rounded-3xl p-[clamp(1rem,2vmin,3rem)] flex flex-col justify-between">
 
                 {/* Header: Feedback */}
                 <div
