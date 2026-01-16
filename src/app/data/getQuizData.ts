@@ -1,6 +1,6 @@
 "use server";
 import prisma from "../../../prisma/prisma";
-import {getLatestUser} from "@/app/data/handleUser";
+import { getLatestUser } from "@/app/data/handleUser";
 
 export async function getFullQuizData() {
     const data = await prisma.quiz.findMany({

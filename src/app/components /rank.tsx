@@ -1,7 +1,7 @@
 'use client'
 
-import {useEffect, useState, useTransition} from "react";
-import {getDataForRecentQuestions} from "@/app/data/handleAnswerStatistics";
+import { useEffect, useState, useTransition } from "react";
+import { getDataForRecentQuestions } from "@/app/data/handleAnswerStatistics";
 
 type QuizStats = {
     totalPlayers: number;

@@ -1,5 +1,5 @@
-import {useEffect, useState, useTransition} from "react";
-import {getUserScore, getUserScoreNumber} from "@/app/data/handleAnswerStatistics";
+import { useEffect, useState, useTransition } from "react";
+import { getUserScore, getUserScoreNumber } from "@/app/data/handleAnswerStatistics";
 
 type UserScore = Awaited<ReturnType<typeof getUserScore>>;
 

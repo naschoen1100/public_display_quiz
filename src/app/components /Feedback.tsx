@@ -1,7 +1,7 @@
 'use client'
 
-import {useEffect, useState, useTransition} from "react";
-import {getDataPerQuestion} from "@/app/data/handleAnswerStatistics";
+import { useEffect, useState, useTransition } from "react";
+import { getDataPerQuestion } from "@/app/data/handleAnswerStatistics";
 
 type FeedbackProps = {
     questionId: number;

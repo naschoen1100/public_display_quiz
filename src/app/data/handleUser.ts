@@ -63,7 +63,7 @@ export async function updateUserScore(){
             userId: user.id
         },
         data: {
-            points: {increment: 1}
+            points: { increment: 1 }
         }
     })
     console.log("updated score..." + JSON.stringify(user))

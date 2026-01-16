@@ -1,10 +1,10 @@
 "use client";
-import {use, useState} from "react";
-import {useRouter} from "next/navigation";
-import {getQuizNames} from "@/app/data/getQuizData";
-import {createUserWithScore} from "@/app/data/handleUser";
+import { use, useState } from "react";
+import { useRouter } from "next/navigation";
+import { getQuizNames } from "@/app/data/getQuizData";
+import { createUserWithScore } from "@/app/data/handleUser";
 import { SpinWheel } from "react-spin-wheel"
-import {wrapText} from "@/app/util/textWrapper";
+import { wrapText } from "@/app/util/textWrapper";
 import "react-spin-wheel/dist/index.css"
 
 type SpinWheelItem = {
@@ -15,7 +15,7 @@ type SpinningWheelProps = {
     dataPromise: Promise<Awaited<ReturnType<typeof getQuizNames>>>;
     }
 
-export default function SpinningWheel({dataPromise}: SpinningWheelProps) {
+export default function SpinningWheel({ dataPromise }: SpinningWheelProps) {
     const data = use(dataPromise);
     const router = useRouter();
 

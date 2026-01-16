@@ -1,6 +1,6 @@
 import SpinningWheel from "@/app/components /SpinningWheel";
-import {Suspense} from "react";
-import {getQuizNames} from "@/app/data/getQuizData";
+import { Suspense } from "react";
+import { getQuizNames } from "@/app/data/getQuizData";
 export const dynamic = "force-dynamic";
 
 export default async function EntryPage () {
