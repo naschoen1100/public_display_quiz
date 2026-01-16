@@ -14,15 +14,15 @@ export default function QuizFeedback({question, selectedIndex, onNext}: Feedback
         onNext()
     }
         return (
-            <div className="card w-full max-w-[80vmin] aspect-[4/4] bg-gradient-to-br from-cyan-700 to-cyan-900 shadow-2xl rounded-3xl p-[clamp(1rem,2vmin,3rem)] flex flex-col justify-between">
+            <div className="card w-full max-w-[80vmin] aspect-[4/4] bg-gradient-to-br from-cyan-700 to-cyan-900 shadow-2xl rounded-3xl p-[clamp(1rem,2vmin,3rem)] flex flex-col justify-between overflow-hidden">
 
                 {/* Header: Feedback */}
-                <div
-                    className={`text-center font-bold py-[clamp(0.8rem,2vmin,2rem)] rounded-xl text-[clamp(1.5rem,3vmin,4rem)]
-        ${isCorrect ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"} shadow-md`}
-                >
-                    {isCorrect ? "Right Answer" : "Wrong Answer"}
-                </div>
+              <div
+                className={`text-center font-bold py-[clamp(0.8rem,4vmin,5rem)] text-[clamp(1.5rem,3vmin,4rem)] -mx-[clamp(1rem,2vmin,3rem)] -mt-[clamp(1rem,2vmin,3rem)] mb-[clamp(1rem,2vmin,3rem)]"
+                    ${isCorrect ? "bg-green-100 text-green-700" : "bg-red-200 text-red-700"} shadow-md`}
+              >
+                {isCorrect ? "Right Answer" : "Wrong Answer"}
+              </div>
 
                 {/* Body: Question + Answers + Feedback + Leaderboard */}
                 <div className="flex flex-1 gap-[clamp(1rem,2vmin,2rem)] mt-[clamp(1rem,2vmin,2rem)] overflow-y-auto">
