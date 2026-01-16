@@ -1,25 +1,30 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+export default defineConfig([
+  ...nextVitals,
+  ...nextTs,
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  // deine Overrides
   {
-    ignores: [
-      "node_modules/**",
-      ".next/**",
-      "out/**",
-      "build/**",
-      "next-env.d.ts",
-    ],
-  },
-];
+    rules: {
+      // In TS-Projekten besser die TS-Regel nutzen:
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "warn",
 
-export default eslintConfig;
+      "prefer-const": "warn",
+      "no-trailing-spaces": "warn",
+      "object-curly-spacing": ["warn", "always"],
+    },
+  },
+
+  // Ignored files (wie in den Next Docs)
+  globalIgnores([
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+    "node_modules/**",
+  ]),
+]);
