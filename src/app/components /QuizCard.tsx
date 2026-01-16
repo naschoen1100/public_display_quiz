@@ -1,8 +1,8 @@
 'use client'
-import React, {useState} from "react";
-import {UIQuestion} from "@/app/types/types";
-import {deleteUser, updateUserScore} from "@/app/data/handleUser";
-import {useRouter} from "next/navigation";
+import React, { useState } from "react";
+import { UIQuestion } from "@/app/types/types";
+import { deleteUser, updateUserScore } from "@/app/data/handleUser";
+import { useRouter } from "next/navigation";
 
 export type QuizCardProps = {
     question: UIQuestion;
@@ -10,7 +10,7 @@ export type QuizCardProps = {
     onNext: (isCorrect: boolean, selected: number) => void;
 };
 
-export default function QuizCard({question, questionCount, onNext}: QuizCardProps) {
+export default function QuizCard({ question, questionCount, onNext }: QuizCardProps) {
     const [selected, setSelected] = useState<number>(0);
     const [answered, setAnswered] = useState(false);
     const router = useRouter();

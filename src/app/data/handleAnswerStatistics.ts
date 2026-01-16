@@ -1,6 +1,6 @@
 'use server'
 import prisma from "../../../prisma/prisma";
-import {getLatestUser} from "@/app/data/handleUser";
+import { getLatestUser } from "@/app/data/handleUser";
 
 export async function getUserScore () {
     const user = await getLatestUser()
@@ -21,7 +21,7 @@ export async function getDataPerQuestion (questionId: number) {
         where: {
             questionId: questionId,
             user: {
-                completedAt: {not: null},
+                completedAt: { not: null },
             }
         }
     })
@@ -66,7 +66,7 @@ export async function getDataForRecentQuestions() {
     const users = await prisma.user.findMany({
         where: {
             quizId: user.quizId,
-            completedAt : {not: null},
+            completedAt : { not: null },
         },
         select: {
             id: true,
@@ -74,7 +74,7 @@ export async function getDataForRecentQuestions() {
                 orderBy: { createdAt: "asc" },
                 take: answeredCount,
                 where: {
-                    isCorrect: true},
+                    isCorrect: true },
             },
         },
     });
@@ -84,5 +84,5 @@ export async function getDataForRecentQuestions() {
     ).length;
     console.log("better players" + betterPlayers);
     console.log("totalPlayers: ", totalPlayers);
-    return {totalPlayers, betterPlayers};
+    return { totalPlayers, betterPlayers };
 }

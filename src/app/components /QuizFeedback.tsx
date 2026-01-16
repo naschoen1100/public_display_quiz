@@ -1,6 +1,6 @@
 'use client'
 
-import {UIQuestion} from "@/app/types/types";
+import { UIQuestion } from "@/app/types/types";
 
 type FeedbackProps = {
     question: UIQuestion;
@@ -8,7 +8,7 @@ type FeedbackProps = {
     onNext: () => void;
 };
 
-export default function QuizFeedback({question, selectedIndex, onNext}: FeedbackProps) {
+export default function QuizFeedback({ question, selectedIndex, onNext }: FeedbackProps) {
     const isCorrect = selectedIndex === question.correctAnswer;
     const handleNext = async (): Promise<void> => {
         onNext()

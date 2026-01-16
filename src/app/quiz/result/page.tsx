@@ -1,6 +1,6 @@
-import {Suspense} from "react";
+import { Suspense } from "react";
 import ResultPage from "@/app/components /ResultPage";
-import {getUserScore} from "@/app/data/handleAnswerStatistics";
+import { getUserScore } from "@/app/data/handleAnswerStatistics";
 
 export const dynamic = "force-dynamic";
 

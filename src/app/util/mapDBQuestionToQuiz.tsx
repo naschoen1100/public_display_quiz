@@ -1,4 +1,4 @@
-import {Question, UIQuestion} from "@/app/types/types";
+import { Question, UIQuestion } from "@/app/types/types";
 
 export function mapDBQuestionToQuizQuestion(question: Question): UIQuestion {
     return {
