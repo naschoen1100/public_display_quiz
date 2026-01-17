@@ -1,8 +1,8 @@
-import SpinningWheel from "@/app/components /SpinningWheel";
-import { Suspense } from "react";
-import { getQuizNames } from "@/app/data/getQuizData";
-import { importQuizzes } from "@/app/data/createQuizData";
-export const dynamic = "force-dynamic";
+import SpinningWheel from '@/app/components/SpinningWheel';
+import { Suspense } from 'react';
+import { getQuizNames } from '@/app/data/getQuizData';
+import { importQuizzes } from '@/app/data/createQuizData';
+export const dynamic = 'force-dynamic';
 
 export default async function EntryPage() {
   const dataPromise = getQuizNames();
@@ -19,10 +19,7 @@ export default async function EntryPage() {
           <div className="  w-full max-w-[75vmin] lg:max-w-[65vmin] 2xl:max-w-[70vmin] aspect-square flex items-center justify-center">
             <Suspense
               fallback={
-                <p className="text-center mt-6 text-[clamp(1rem,3vmin,2rem)]">
-                  {" "}
-                  ...Loading{" "}
-                </p>
+                <p className="text-center mt-6 text-[clamp(1rem,3vmin,2rem)]"> ...Loading </p>
               }
             >
               <SpinningWheel dataPromise={dataPromise} />
