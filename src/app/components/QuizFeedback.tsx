@@ -36,7 +36,7 @@ export default function QuizFeedback({ question, selectedIndex, onNext }: Feedba
         </div>
 
         {/* Body: Question + Answers + Feedback */}
-        <div className="flex flex-1 gap-[clamp(1rem,2.5vmin,3rem)] mt-[clamp(1rem,2vmin,2rem)] overflow-y-auto">
+        <div className="flex flex-1 gap-[clamp(1rem,2.5vmin,3rem)] mt-[clamp(1rem,2vmin,2rem)]">
           {/* Question + Answers */}
           <div className="flex-1 flex flex-col gap-[clamp(0.5rem,1vmin,1.5rem)]">
             {/* Question */}
