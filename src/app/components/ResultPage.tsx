@@ -27,7 +27,7 @@ export default function ResultPage({ dataPromise }: ResultPageProps) {
 
         {/* Button */}
         <button
-          className="btn py-[clamp(0.5rem,2vmin,3rem)] text-[clamp(0.9rem,2.2vmin,3rem)] bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white rounded-xl shadow-lg transition-all mt-[clamp(0.5rem,1vmin,2rem)]"
+          className="flex py-[clamp(0.5rem,2vmin,3rem)] text-[clamp(0.9rem,2.2vmin,3rem)] w-[clamp(1rem,20vmin,20rem)] bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white rounded-xl shadow-lg transition-all mt-[clamp(0.5rem,1vmin,2rem)] justify-center"
           onClick={() => router.push(`/`)}
         >
           Start Again

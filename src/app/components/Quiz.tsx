@@ -44,6 +44,7 @@ export default function QuizPage({ dataPromise }: QuizPageProps) {
   useEffect(() => {
     if (isFinished) {
       console.log('data and is finished: ' + data);
+      setUserQuizFinished();
       router.push('/quiz/result');
     }
   }, [isFinished, router]);
@@ -66,7 +67,6 @@ export default function QuizPage({ dataPromise }: QuizPageProps) {
   }
 
   if (isFinished) {
-    setUserQuizFinished();
     return <p>Quiz beendet</p>;
   }
 
