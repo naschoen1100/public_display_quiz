@@ -11,7 +11,7 @@ export default async function EntryPage() {
         <h1 className="font-extrabold text-center uppercase text-cyan-500 text-[clamp(1rem,8vmin,10rem)]">
           Test your Password Security knowledge
         </h1>
-        <h2 className="font-semibold text-center text-white text-[clamp(1rem,6vmin,12rem)]">
+        <h2 className="font-semibold animate-pulse text-center text-white text-[clamp(1rem,6vmin,12rem)]">
           Spin the Wheel
         </h2>
         <section className=" mt-[3vmin]  w-full flex justify-center">
