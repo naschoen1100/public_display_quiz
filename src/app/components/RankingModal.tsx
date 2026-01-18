@@ -1,13 +1,6 @@
 'use client';
 
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  useTransition,
-} from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from 'react';
 import { getDataForRecentQuestions } from '@/app/data/handleAnswerStatistics';
 
 type QuizStats = {
@@ -40,9 +33,7 @@ export default function RankingModal({
 
   const topPercent = useMemo(() => {
     if (!stats?.totalPlayers || stats.totalPlayers <= 0) return 0;
-    const p = Math.round(
-      ((stats.totalPlayers - stats.betterPlayers) / stats.totalPlayers) * 100
-    );
+    const p = Math.round(((stats.totalPlayers - stats.betterPlayers) / stats.totalPlayers) * 100);
     return Math.max(0, Math.min(100, p));
   }, [stats]);
 
@@ -66,8 +57,6 @@ export default function RankingModal({
 
   if (!open) return null;
 
-  const loading = stats == null || isPending;
-
   return (
     <dialog className="modal modal-open">
       {/* Overlay */}
@@ -75,7 +64,7 @@ export default function RankingModal({
 
       {/* Card */}
       <div
-        className="relative mt-[8vh] w-[min(92vw,80rem)] rounded-[2.5rem]
+        className="relative -translate-y-[15vh] mt-[8vh] w-[min(92vw,80rem)] rounded-[2.5rem]
                border border-white/25 bg-white/80
                shadow-[0_40px_120px_-50px_rgba(0,0,0,0.45)]
                px-[clamp(1.5rem,4vmin,4rem)]
@@ -113,11 +102,7 @@ export default function RankingModal({
               className="mt-[clamp(0.4rem,3vmin,2rem)]
                         text-slate-600 text-[clamp(1.1rem,3vmin,2.5rem)]"
             >
-              {topPercent >= 90
-                ? 'Outstanding!'
-                : topPercent >= 50
-                  ? 'Nice work!'
-                  : 'Keep going!'}
+              {topPercent >= 90 ? 'Outstanding!' : topPercent >= 50 ? 'Nice work!' : 'Keep going!'}
             </div>
           </div>
 
@@ -150,10 +135,7 @@ export default function RankingModal({
               <span className="font-extrabold text-slate-900">
                 {(stats?.betterPlayers ?? 0) + 1}
               </span>{' '}
-              of{' '}
-              <span className="font-bold text-slate-900">
-                {stats?.totalPlayers ?? 0}
-              </span>
+              of <span className="font-bold text-slate-900">{stats?.totalPlayers ?? 0}</span>
             </p>
           </div>
         </div>

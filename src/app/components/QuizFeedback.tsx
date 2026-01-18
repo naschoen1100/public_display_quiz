@@ -20,7 +20,7 @@ export default function QuizFeedback({ question, selectedIndex, onNext }: Feedba
   };
   return (
     <>
-      <div className="card w-full max-w-[80vmin] aspect-[4/4] bg-gradient-to-br from-cyan-700 to-cyan-900 shadow-2xl rounded-3xl p-[clamp(1rem,2vmin,3rem)] flex flex-col justify-between overflow-hidden">
+      <div className="card relative w-full max-w-[80vmin] aspect-[4/4] bg-gradient-to-br from-cyan-700 to-cyan-900 shadow-2xl rounded-3xl p-[clamp(1rem,2vmin,3rem)] flex flex-col justify-between overflow-hidden">
         <div
           className="absolute top-[clamp(0.8rem,2vmin,2rem)] right-[clamp(0.8rem,0.5vmin,0.7rem)] bg-gray-200 text-slate-800 font-bold
                                 px-[clamp(0.8rem,2.5vmin,4.5rem)] py-[clamp(0.4rem,2.3vmin,4rem)] rounded-full text-[clamp(1rem,2.3vmin,4rem)] shadow-lg"
@@ -36,7 +36,7 @@ export default function QuizFeedback({ question, selectedIndex, onNext }: Feedba
         </div>
 
         {/* Body: Question + Answers + Feedback */}
-        <div className="flex flex-1 gap-[clamp(1rem,2.5vmin,3rem)] mt-[clamp(1rem,2vmin,2rem)] overflow-y-auto">
+        <div className="flex flex-1 gap-[clamp(1rem,2.5vmin,3rem)] mt-[clamp(1rem,2vmin,2rem)]">
           {/* Question + Answers */}
           <div className="flex-1 flex flex-col gap-[clamp(0.5rem,1vmin,1.5rem)]">
             {/* Question */}
