@@ -63,7 +63,7 @@ export default function QuizFeedback({ question, selectedIndex, onNext }: Feedba
                 );
               })}
             </div>
-            <div className="mt-[clamp(0.5rem,1.5vmin,3rem)] p-[clamp(0.5rem,1vmin,1rem)] text-[clamp(1rem,3.5vmin,4.5rem)] text-white-500 text-center">
+            <div className="text-white mt-[clamp(0.5rem,1.5vmin,3rem)] p-[clamp(0.5rem,1vmin,1rem)] text-[clamp(1rem,3.5vmin,4.5rem)] text-center">
               <Feedback questionId={question.id} />
             </div>
           </div>
