@@ -63,7 +63,7 @@ export default function QuizCard({ question, questionCount, onNext }: QuizCardPr
       <div className="flex flex-col gap-[clamp(0.5rem,1.5vmin,2rem)] mt-[clamp(1rem,2vmin,2rem)]">
         <div className="flex gap-[clamp(0.5rem,1.5vmin,2rem)]">
           <button
-            className="btn flex-1 py-[clamp(0.5rem,2vmin,3rem)] text-[clamp(0.9rem,2.2vmin,3rem)] bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white rounded-xl shadow-lg transition-all"
+            className="btn flex-1 py-[clamp(0.5rem,2vmin,3rem)] text-[clamp(0.9rem,2.2vmin,3rem)] bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-sky-500 hover:to-cyan-500 text-white rounded-xl shadow-lg transition-all"
             onClick={() => {
               handleStartNew();
               router.push(`/`);
