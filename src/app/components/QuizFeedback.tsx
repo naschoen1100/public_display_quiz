@@ -33,14 +33,14 @@ export default function QuizFeedback({ question, selectedIndex, onNext }: Feedba
           </div>
 
           {/* Answers */}
-          <div className="flex flex-col gap-[clamp(0.5rem,1vmin,1rem)]">
+          <div className="flex flex-col gap-[clamp(0.5rem,1.5vmin,2rem)]">
             {question.answers.map((answer, index) => {
               const isCorrectAnswer = index === question.correctAnswer;
               const isSelected = index === selectedIndex;
               return (
                 <div
                   key={index}
-                  className={`px-[clamp(0.5rem,1vmin,1rem)] py-[clamp(0.5rem,1vmin,1.5rem)] rounded-xl text-[clamp(1.2rem,2vmin,3rem)] 
+                  className={`px-[clamp(0.5rem,1vmin,1rem)] py-[clamp(0.5rem,1.5vmin,2rem)] rounded-xl text-[clamp(1.2rem,2.5vmin,4rem)] 
                                                   font-bold transition-all duration-200 transform hover:scale-105
                                                   ${isCorrectAnswer ? 'border-green-400 bg-green-600 text-white' : ''}
                                                   ${isSelected && !isCorrectAnswer ? 'border-red-400 bg-red-500 text-white' : ''}
