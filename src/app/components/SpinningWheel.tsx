@@ -31,7 +31,7 @@ export default function SpinningWheel({ dataPromise }: SpinningWheelProps) {
         router.push(`/quiz`);
     };
 
-    const size = Math.min(window.innerWidth, window.innerHeight) * 0.7;
+    const size = Math.min(window.innerWidth, window.innerHeight) * 0.65;
 
     const labels: string[] = data.map(q => wrapText(q.title,2));
 
