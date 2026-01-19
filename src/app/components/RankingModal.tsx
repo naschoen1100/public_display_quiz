@@ -19,7 +19,7 @@ export default function RankingModal({
   open,
   onClose,
   onAfterClose,
-  autoCloseMs = 40,
+  autoCloseMs = 4000,
 }: RankingModalProps) {
   const [stats, setStats] = useState<QuizStats | null>(null);
   const [isPending, startTransition] = useTransition();
