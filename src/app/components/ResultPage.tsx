@@ -3,6 +3,7 @@ import { use } from 'react';
 import { useRouter } from 'next/navigation';
 import { getUserScore } from '@/app/data/handleAnswerStatistics';
 import { useInactivityTimeout } from '@/app/util/useInactivityTimeout';
+import { Image } from 'next/dist/client/image-component';
 
 type ResultPageProps = {
   dataPromise: Promise<Awaited<ReturnType<typeof getUserScore>>>;
@@ -26,6 +27,20 @@ export default function ResultPage({ dataPromise }: ResultPageProps) {
         </p>
 
         {/* Button */}
+        <div className="relative w-full max-w-[200px] aspect-square py-[clamp(1rem,3vmin,3.5rem)]">
+          <Image
+            src="/QRCode.png"
+            alt="QR-Code"
+            fill
+            className="object-contain"
+            sizes="(max-width: 640px) 100vw, 200px"
+            priority={false}
+          />
+        </div>
+        <p className=" text-[clamp(1.5rem,3vmin,4rem)] font-semibold text-center text-white">
+          If you have 5 minutes, please support my bachelors thesis by filling out the
+          questionnaire. Thank you :)
+        </p>
         <button
           className="flex py-[clamp(0.5rem,2vmin,3rem)] text-[clamp(0.9rem,2.2vmin,3rem)] w-[clamp(1rem,20vmin,20rem)] bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white rounded-xl shadow-lg transition-all mt-[clamp(0.5rem,1vmin,2rem)] justify-center"
           onClick={() => router.push(`/`)}

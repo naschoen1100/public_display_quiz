@@ -50,7 +50,7 @@ export default function QuizCard({ question, questionCount, onNext }: QuizCardPr
             ${
               answered && selected === index
                 ? 'bg-cyan-500 text-white border-cyan-700'
-                : 'bg-gray-800 text-white border-gray-300 hover:bg-gray-100'
+                : 'bg-gray-800 text-white border-gray-300 hover:bg-gray-400'
             }`}
             onClick={() => handleAnswer(option)}
           >
