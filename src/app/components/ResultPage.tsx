@@ -29,7 +29,7 @@ export default function ResultPage({ dataPromise }: ResultPageProps) {
         <div className="text-white w-full text-[clamp(1.5rem,3vmin,4rem)]  flex justify-center mt-[clamp(0.5rem,1.5vmin,2rem)]">
           <Rank />
         </div>
-        {/* Button */}
+        {/* Button and QR-code & Text */}
         <div className="relative w-full max-w-[200px] aspect-square py-[clamp(1rem,3vmin,3.5rem)]">
           <Image
             src="/QRCode.png"
