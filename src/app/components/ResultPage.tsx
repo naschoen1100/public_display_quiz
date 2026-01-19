@@ -16,7 +16,7 @@ export default function ResultPage({ dataPromise }: ResultPageProps) {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-600 to-slate-800 p-4">
       <div className="card w-full max-w-[70vmin] aspect-[4/3] bg-gradient-to-br from-cyan-700 to-cyan-900 shadow-2xl rounded-2xl p-[clamp(1rem,1.5vmin,2rem)] flex flex-col justify-center items-center gap-[clamp(1rem,2vmin,2rem)]">
         {/* Header */}
-        <h1 className="text-[clamp(2rem,4vmin,6rem)] font-extrabold text-center uppercase">
+        <h1 className="text-white text-[clamp(2rem,4vmin,6rem)] font-extrabold text-center uppercase">
           Quiz Finished!
         </h1>
 
