@@ -28,7 +28,7 @@ export default function QuizFeedback({ question, selectedIndex, onNext }: Feedba
         {/* Question + Answers */}
         <div className="flex-1 flex flex-col gap-[clamp(0.5rem,1vmin,1.5rem)]">
           {/* Question */}
-          <div className="text-center text-[clamp(1.5rem,3vmin,4rem)] font-semibold text-white p-[clamp(0.5rem,1vmin,1rem)]">
+          <div className="text-center text-[clamp(1.5rem,2vmin,2.6rem)] font-semibold text-white p-[clamp(0.5rem,1vmin,1rem)]">
             {question.text}
           </div>
 
