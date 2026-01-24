@@ -32,7 +32,7 @@ export default function ResultPage({ dataPromise }: ResultPageProps) {
         {/* Button and QR-code & Text */}
         <div className="relative w-full max-w-[200px] aspect-square py-[clamp(1rem,3vmin,3.5rem)]">
           <Image
-            src="/QRCode.png"
+            src="/QRCode_week2.png"
             alt="QR-Code"
             fill
             className="object-contain"
