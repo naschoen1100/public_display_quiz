@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { UIQuestion } from '@/app/types/types';
 import { deleteUser, updateUserScore } from '@/app/data/handleUser';
 import { useRouter } from 'next/navigation';
+import { useInactivityTimeout } from '@/app/util/useInactivityTimeout';
 
 export type QuizCardProps = {
   question: UIQuestion;
@@ -11,6 +12,7 @@ export type QuizCardProps = {
 };
 
 export default function QuizCard({ question, questionCount, onNext }: QuizCardProps) {
+  useInactivityTimeout();
   const [selected, setSelected] = useState<number>(0);
   const [answered, setAnswered] = useState(false);
   const router = useRouter();

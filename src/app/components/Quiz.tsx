@@ -13,7 +13,7 @@ type QuizPageProps = {
 };
 
 export default function QuizPage({ dataPromise }: QuizPageProps) {
-  useInactivityTimeout(60000 * 3);
+  useInactivityTimeout();
   const router = useRouter();
   const data = use(dataPromise);
   const [current, setCurrent] = useState(0);

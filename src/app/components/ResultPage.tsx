@@ -10,7 +10,7 @@ type ResultPageProps = {
   dataPromise: Promise<Awaited<ReturnType<typeof getUserScore>>>;
 };
 export default function ResultPage({ dataPromise }: ResultPageProps) {
-  useInactivityTimeout(60000 * 3);
+  useInactivityTimeout();
   const data = use(dataPromise);
   const router = useRouter();
   const points = data?.score?.points ?? 0;

@@ -5,6 +5,7 @@ import Feedback from '@/app/components/Feedback';
 import { useState } from 'react';
 import RankingModal from '@/app/components/RankingModal';
 import Score from '@/app/components/Score';
+import { useInactivityTimeout } from '@/app/util/useInactivityTimeout';
 
 type FeedbackProps = {
   question: UIQuestion;
@@ -13,6 +14,7 @@ type FeedbackProps = {
 };
 
 export default function QuizFeedback({ question, selectedIndex, onNext }: FeedbackProps) {
+  useInactivityTimeout();
   const isCorrect = selectedIndex === question.correctAnswer;
   const [open, setOpen] = useState(false);
   const handleNext = async (): Promise<void> => {
