@@ -80,13 +80,6 @@ export default function QuizCard({ question, questionCount, onNext }: QuizCardPr
           </button>
         </div>
 
-        {/* Progress */}
-        {/* <progress
-          className="progress h-[clamp(0.5rem,1.5vmin,1.5rem)] rounded-full overflow-hidden"
-          value={(100 * questionCount) / 3}
-          max={100}
-        />*/}
-
         <p className="text-[clamp(0.9rem,2vmin,3rem)] text-center text-white opacity-80">
           Question {questionCount} of 3
         </p>
